@@ -23,7 +23,8 @@ class Draw {
         for (let i = 0; i < e.length; i++) {
             if (!e[i].isKilled) {
                 ctx.beginPath();
-                ctx.rect(e[i].x, e[i].y, Enemies.width, Enemies.height);
+                ctx.rect(e[i].x, e[i].y, Enemies.width, Enemies.height / 2);
+                ctx.rect(e[i].x + Enemies.width / 2 - 5, e[i].y + 10, 10, Enemies.height / 2);
                 ctx.fillStyle = 'rgba(255, 0, 0, 0.7)';
                 ctx.fill();
                 ctx.stroke();
