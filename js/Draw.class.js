@@ -53,10 +53,23 @@ class Draw {
         ctx.fill();
         ctx.stroke();
     }
+    explodes() {
+        ctx.beginPath();
+        let ex = Missiles.explodes;
+        for (let i in ex) {
+            ctx.moveTo(ex[i].x, ex[i].y);
+            ctx.arc(ex[i].x, ex[i].y, Missiles.explodeRadius, 0, 2 * Math.PI, false);
+        }
+        ctx.lineWidth = 1;
+        ctx.fillStyle = '#00f';
+        ctx.fill();
+        ctx.stroke();
+    }
     All() {
         this.background();
         this.enemies();
         this.missiles();
+        this.explodes();
         this.player();
     }
 }
