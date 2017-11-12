@@ -49,17 +49,14 @@ class Enemies {
                     c++;
                     if (c === random) {
                         let arr = {
-                            x: this.list[i].x + Bullets.size / 2,
-                            y: this.list[i].y + Bullets.size
+                            x: this.list[i].x + Missiles.size / 2,
+                            y: this.list[i].y + Missiles.size
                         };
-                        Bullets.enemiesBullets.push(arr);
+                        Missiles.enemiesMissiles.push(arr);
                         this.lastShootTime = new Date().getTime();
                     }
                 }
             }
-
-//            console.log(Bullets.enemiesBullets)
         }
-
     }
 }

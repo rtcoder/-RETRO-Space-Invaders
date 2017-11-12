@@ -35,23 +35,22 @@ class Draw {
             }
         }
     }
-    bullets() {
+    missiles() {
         ctx.beginPath();
-        let pb = Bullets.playerBullets;
+        let pb = Missiles.playerMissiles;
         for (let i = 0; i < pb.length; i++) {
             let x = pb[i].x;
             let y = pb[i].y;
             ctx.moveTo(x, y);
 
-            ctx.arc(x, y, Bullets.size / 2, 0, 2 * Math.PI, false);
+            ctx.arc(x, y, Missiles.size / 2, 0, 2 * Math.PI, false);
         }
-        let eb = Bullets.enemiesBullets;
+        let eb = Missiles.enemiesMissiles;
         for (let i = 0; i < eb.length; i++) {
             let x = eb[i].x;
             let y = eb[i].y;
             ctx.moveTo(x, y);
-
-            ctx.arc(x, y, Bullets.size / 2, 0, 2 * Math.PI, false);
+            ctx.arc(x, y, Missiles.size / 2, 0, 2 * Math.PI, false);
         }
         ctx.lineWidth = 1;
         ctx.fillStyle = '#fff';
@@ -61,7 +60,7 @@ class Draw {
     All() {
         this.background();
         this.enemies();
-        this.bullets();
+        this.missiles();
         this.player();
     }
 }

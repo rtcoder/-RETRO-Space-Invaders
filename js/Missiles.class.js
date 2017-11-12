@@ -1,14 +1,15 @@
-class Bullets {
+class Missiles {
     constructor() {
         this.size = 5;
         this.step = 5;
         this.explodes = new Array();
-        this.playerBullets = new Array();
-        this.enemiesBullets = new Array();
+        this.explodeRadius = 50;
+        this.playerMissiles = new Array();
+        this.enemiesMissiles = new Array();
     }
     move() {
-        var pb = this.playerBullets;
-        var eb = this.enemiesBullets;
+        var pb = this.playerMissiles;
+        var eb = this.enemiesMissiles;
         for (var i = 0; i < pb.length; i++) {
             pb[i].y -= this.step;
             if (pb[i].y < 0) {

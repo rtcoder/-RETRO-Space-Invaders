@@ -9,7 +9,7 @@ var Game = {
         Collisions = new Collisions();
         Draw = new Draw();
         Enemies = new Enemies();
-        Bullets = new Bullets();
+        Missiles = new Missiles();
         Player = new Player();
         Keys = new Keys();
         Game.set();
@@ -47,11 +47,11 @@ var Game = {
 
 function loop() {
     if (!Game.isPaused && !Game.isFinished) {
-        Collisions.Bullets();
+        Collisions.Missiles();
         Collisions.Explodes();
 
         Enemies.move();
-        Bullets.move();
+        Missiles.move();
         Enemies.shoot();
 
         if (Keys.left) {

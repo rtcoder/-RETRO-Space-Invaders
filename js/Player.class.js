@@ -36,7 +36,7 @@ class Player {
                 y: this.y - this.height
             };
 
-            Bullets.playerBullets.push(arr);
+            Missiles.playerMissiles.push(arr);
             this.lastShootTime = new Date().getTime();
         }
     }
