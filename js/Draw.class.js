@@ -38,8 +38,13 @@ class Draw {
             let x = pb[i].x;
             let y = pb[i].y;
             ctx.moveTo(x, y);
-
             ctx.arc(x, y, Missiles.size / 2, 0, 2 * Math.PI, false);
+            if (pb[i].type === BULLET) {
+                ctx.fillStyle = '#fff';
+            } else if (pb[i].type === BOMB) {
+                ctx.fillStyle = '#00f';
+            }
+            ctx.fill();
         }
         let eb = Missiles.enemiesMissiles;
         for (let i = 0; i < eb.length; i++) {
@@ -47,10 +52,10 @@ class Draw {
             let y = eb[i].y;
             ctx.moveTo(x, y);
             ctx.arc(x, y, Missiles.size / 2, 0, 2 * Math.PI, false);
+            ctx.fillStyle = '#fff';
+            ctx.fill();
         }
         ctx.lineWidth = 1;
-        ctx.fillStyle = '#fff';
-        ctx.fill();
         ctx.stroke();
     }
     explodes() {

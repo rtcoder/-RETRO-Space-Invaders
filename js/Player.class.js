@@ -29,11 +29,12 @@ class Player {
         }
     }
 
-    shoot() {
+    shoot(type) {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {
             let arr = {
                 x: this.x + this.width / 2,
-                y: this.y - this.height
+                y: this.y - this.height,
+                type: type
             };
 
             Missiles.playerMissiles.push(arr);

@@ -1,6 +1,9 @@
+const BULLET = 1;
+const BOMB = 2;
 var Game = {
     isPaused: false,
     isFinished: false,
+    isBombEnabled: false,
     gameLoop: null,
     level: 0,
     startGame: function () {
@@ -20,6 +23,9 @@ var Game = {
         Enemies.rows = levels[Game.level].rows;
         Enemies.shootInterval = levels[Game.level].enemiesShootInterval;
         Player.shootInterval = levels[Game.level].playerShootInterval;
+        if (Game.level > 1) {
+            Game.isBombEnabled = true;
+        }
         Enemies.generate();
     },
     finish: function (arg) {
@@ -61,7 +67,10 @@ function loop() {
             Player.moveRight();
         }
         if (Keys.ctrl) {
-            Player.shoot();
+            Player.shoot(BULLET);
+        }
+        if (Keys.Z && Game.isBombEnabled) {
+            Player.shoot(BOMB);
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
