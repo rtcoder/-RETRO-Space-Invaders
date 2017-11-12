@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Invaders</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            canvas{
+                width: 100%;
+                height: 100%;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="game">
+            <canvas id="canvas"></canvas>
+        </div>
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext('2d');
+        </script>
+        <script src="js/levels.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/Keys.class.js"></script>
+        <script src="js/Enemies.class.js"></script>
+        <script src="js/Collisions.class.js"></script>
+        <script src="js/Draw.class.js"></script>
+        <script src="js/Bullets.class.js"></script>
+        <script src="js/Player.class.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
