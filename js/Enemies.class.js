@@ -59,4 +59,15 @@ class Enemies {
             }
         }
     }
+    countAlive() {
+        let c = 0;
+        for (let k in this.list) {
+            if (!this.list[k].isKilled) {
+                c++;
+            }
+        }
+        if (c === 0) {
+            Game.finish('next');
+        }
+    }
 }

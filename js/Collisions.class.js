@@ -20,6 +20,7 @@ class Collisions {
                         && !e[i].isKilled) {
 
                     e[i].isKilled = true;
+                    Enemies.countAlive();
                 }
             }
         }
@@ -35,17 +36,16 @@ class Collisions {
                         && pb[j].y + Missiles.size >= e[i].y
                         && pb[j].y <= e[i].y + Enemies.height
                         && !e[i].isKilled) {
-                    e[i].isKilled = true;
+                    if (pb[j].type === BULLET) {
+                        e[i].isKilled = true;
+                    } else if (pb[j].type === BOMB) {
+                        Missiles.explodes.push({
+                            x: pb[j].x,
+                            y: pb[j].y
+                        });
+                    }
                     pb.splice(j, 1);
-                    let c = 0;
-                    for (let k in Enemies.list) {
-                        if (!Enemies.list[k].isKilled) {
-                            c++;
-                        }
-                    }
-                    if (c === 0) {
-                        Game.finish('next');
-                    }
+                    Enemies.countAlive();
                 }
             }
         }
