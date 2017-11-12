@@ -1,20 +1,25 @@
 class Collisions {
     Explodes() {
-        var e = Enemies;
+        var e = Enemies.list;
         var ex = Missiles.explodes;
         for (var j = 0; j < ex.length; j++) {
             for (var i = 0; i < e.length; i++) {
+                let r = {
+                    x: e[i].x,
+                    y: e[i].y,
+                    w: Enemies.width,
+                    h: Enemies.height
+                };
+                let c = {
+                    x: ex[j].x,
+                    y: ex[j].y,
+                    r: Missiles.explodeRadius
+                };
                 if (e.length > i && ex.length > j
-                        && ex[j].x + grenades.explodesSize.width / 2 >= e[i].x + e[i].pos
-                        && ex[j].x - grenades.explodesSize.width / 2 <= e[i].x + e[i].pos + e[i].width
-                        && ex[j].y + grenades.explodesSize.height / 2 >= e[i].y
-                        && ex[j].y - grenades.explodesSize.height / 2 <= e[i].y + e[i].height
-                        && ex[j].enemyHurtIds.indexOf(i) < 0) {
+                        && this.RectCircleColliding(c, r)
+                        && !e[i].isKilled) {
 
-                    ex[j].enemyHurtIds.push(i);
-                    if (e[i].lives <= 0) {
-                        e.splice(i, 1);
-                    }
+                    e[i].isKilled = true;
                 }
             }
         }
@@ -56,7 +61,7 @@ class Collisions {
             }
         }
     }
-    isPointInCircle(circle, point) {
+    PointCircleColliding(circle, point) {
         return Math.pow(circle.x - point.x, 2) + Math.pow(circle.y - point.y, 2) < circle.r * circle.r;
     }
     RectCircleColliding(circle, rect) {
