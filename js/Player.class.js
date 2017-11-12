@@ -2,7 +2,7 @@ class Player {
     constructor() {
         this.allowMoveLeft = true;
         this.allowMoveRight = true;
-        this.color = '#333';
+        this.color = '#fff';
         this.lastShootTime = null;
         this.shootInterval = 1000;
         this.step = 3;

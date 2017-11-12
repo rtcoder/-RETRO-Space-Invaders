@@ -6,7 +6,7 @@ class Draw {
         ctx.beginPath();
         ctx.rect(Player.x, Player.y, Player.width, Player.height);
         ctx.rect(Player.x + Player.width / 2 - 5, Player.y - 10, 10, 10);
-        ctx.fillStyle = '#fff';
+        ctx.fillStyle = Player.color;
         ctx.fill();
         ctx.stroke();
     }
@@ -25,7 +25,7 @@ class Draw {
                 ctx.beginPath();
                 ctx.rect(e[i].x, e[i].y, Enemies.width, Enemies.height / 2);
                 ctx.rect(e[i].x + Enemies.width / 2 - 5, e[i].y + 10, 10, Enemies.height / 2);
-                ctx.fillStyle = 'rgba(255, 0, 0, 0.7)';
+                ctx.fillStyle = Enemies.color;
                 ctx.fill();
                 ctx.stroke();
             }

@@ -4,6 +4,7 @@ class Enemies {
         this.height = 30;
         this.space = 20;
         this.step = 1;
+        this.color = 'rgba(255, 0, 0, 0.7)';
         this.rows = 5;
         this.cols = 5;
         this.moveBack = false;

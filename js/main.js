@@ -22,6 +22,7 @@ var Game = {
         Enemies.cols = levels[Game.level].cols;
         Enemies.rows = levels[Game.level].rows;
         Enemies.shootInterval = levels[Game.level].enemiesShootInterval;
+        Enemies.color = levels[Game.level].enemiesColor;
         Player.shootInterval = levels[Game.level].playerShootInterval;
         if (Game.level > 1) {
             Game.isBombEnabled = true;
