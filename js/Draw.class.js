@@ -3,16 +3,11 @@ class Draw {
         this.backgroundColor = '#000';
     }
     player() {
-        let radiusHead = 10;
-        let radiusEye = 2;
-        let legsHeight = 25;
-
         ctx.beginPath();
-        ctx.arc(Player.x + Player.width / 2, Player.y - Player.height, radiusHead, 0, 2 * Math.PI, false);
-        ctx.fillStyle = Player.color;
+        ctx.rect(Player.x, Player.y, Player.width, Player.height);
+        ctx.rect(Player.x + Player.width / 2 - 5, Player.y - 10, 10, 10);
+        ctx.fillStyle = '#fff';
         ctx.fill();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = 'transparent';
         ctx.stroke();
     }
     background() {

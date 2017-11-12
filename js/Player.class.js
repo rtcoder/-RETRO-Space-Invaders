@@ -2,14 +2,14 @@ class Player {
     constructor() {
         this.allowMoveLeft = true;
         this.allowMoveRight = true;
-        this.x = 0;
-        this.y = canvas.height;
         this.color = '#333';
         this.lastShootTime = null;
         this.shootInterval = 1000;
         this.step = 3;
         this.width = 30;
-        this.height = 30;
+        this.height = 15;
+        this.x = 0;
+        this.y = canvas.height - this.height;
         this.lives = 30;
     }
     moveLeft() {
