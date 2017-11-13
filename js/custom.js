@@ -25,7 +25,7 @@ function getRandomInt(min, max) {
 
 function resize() {
     canvas.setAttribute('width', window.innerWidth);
-    canvas.setAttribute('height', window.innerHeight);
+    canvas.setAttribute('height', window.innerHeight - document.getElementById('info').offsetHeight);
 }
 
 window.addEventListener('resize', resize);

@@ -11,16 +11,30 @@
                 width: 100%;
                 height: 100%;
                 overflow: hidden;
+                background: #000;
+                font-family: monospace;
+            }
+            #info{
+                height: 30px;
+                line-height: 30px;
+                float: left;
+                color: #fff;
             }
             canvas{
                 width: 100%;
-                height: 100%;
+                height: calc(100% - 30px);
                 float: left;
             }
         </style>
     </head>
     <body>
         <div id="game">
+            <div id="info">
+                <span>
+                    <span>Level:&nbsp;</span>
+                    <span id="level"></span>
+                </span>
+            </div>
             <canvas id="canvas"></canvas>
         </div>
         <script>

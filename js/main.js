@@ -27,6 +27,7 @@ var Game = {
         if (Game.level > 1) {
             Game.isBombEnabled = true;
         }
+        document.getElementById('level').innerHTML = Game.level + 1;
         Enemies.generate();
     },
     finish: function (arg) {
