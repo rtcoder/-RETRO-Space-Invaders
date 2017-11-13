@@ -54,7 +54,7 @@ class Invaders {
         }
     }
     loop() {
-        if (!this.isPaused && !this.isFinished) {
+        if (!Game.isPaused && !Game.isFinished) {
             Collisions.Missiles();
             Collisions.Explodes();
 
@@ -71,7 +71,7 @@ class Invaders {
             if (Keys.ctrl) {
                 Player.shoot(BULLET);
             }
-            if (Keys.Z && this.isBombEnabled) {
+            if (Keys.Z && Game.isBombEnabled) {
                 Player.shoot(BOMB);
             }
             ctx.clearRect(0, 0, canvas.width, canvas.height);
