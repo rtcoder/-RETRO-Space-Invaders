@@ -23,6 +23,10 @@ class Collisions {
                     Enemies.countAlive();
                 }
             }
+            ex[j].t--;
+            if (ex[j].t <= 0) {
+                ex.splice(j, 1);
+            }
         }
     }
     Missiles() {
@@ -41,7 +45,8 @@ class Collisions {
                     } else if (pb[j].type === BOMB) {
                         Missiles.explodes.push({
                             x: pb[j].x,
-                            y: pb[j].y
+                            y: pb[j].y,
+                            t: 10
                         });
                     }
                     pb.splice(j, 1);
