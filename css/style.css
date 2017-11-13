@@ -1,0 +1,33 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: monospace;
+}
+body #info {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  color: #fff;
+}
+body #info a {
+  color: #eee;
+  border-bottom: dotted #eee 1px;
+  text-decoration: none;
+}
+body #info a:hover {
+  border-bottom-style: solid;
+}
+body canvas {
+  width: 100%;
+  height: calc(70%);
+  float: left;
+}
+.right {
+  float: right;
+}
+/*# sourceMappingURL=style.css.map */
