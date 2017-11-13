@@ -1,84 +1,86 @@
 const BULLET = 1;
 const BOMB = 2;
-var Game = {
-    isPaused: false,
-    isFinished: false,
-    isBombEnabled: false,
-    gameLoop: null,
-    level: 0,
-    startGame: function () {
-        Game.isPaused = false;
-        Game.isFinished = false;
+class Invaders {
+    constructor() {
+        this.isPaused = false;
+        this.isFinished = false;
+        this.isBombEnabled = false;
+        this.gameLoop = null;
+        this.level = 0;
+    }
+    startGame() {
+        this.isPaused = false;
+        this.isFinished = false;
         Collisions = new Collisions();
         Draw = new Draw();
         Enemies = new Enemies();
         Missiles = new Missiles();
         Player = new Player();
         Keys = new Keys();
-        Game.set();
-        Game.gameLoop = setInterval(loop, 3);
-    },
-    set: function () {
-        Enemies.cols = levels[Game.level].cols;
-        Enemies.rows = levels[Game.level].rows;
-        Enemies.shootInterval = levels[Game.level].enemiesShootInterval;
-        Enemies.color = levels[Game.level].enemiesColor;
-        Player.shootInterval = levels[Game.level].playerShootInterval;
-        if (Game.level > 1) {
-            Game.isBombEnabled = true;
+        this.set();
+        this.gameLoop = setInterval(this.loop, 3);
+    }
+    set() {
+        Enemies.cols = levels[this.level].cols;
+        Enemies.rows = levels[this.level].rows;
+        Enemies.shootInterval = levels[this.level].enemiesShootInterval;
+        Enemies.color = levels[this.level].enemiesColor;
+        Player.shootInterval = levels[this.level].playerShootInterval;
+        if (this.level > 1) {
+            this.isBombEnabled = true;
         }
-        document.getElementById('level').innerHTML = Game.level + 1;
+        document.getElementById('level').innerHTML = this.level + 1;
         Enemies.generate();
-    },
-    finish: function (arg) {
+    }
+    finish(arg) {
         if (arg === 'fail') {
-            Game.level = 0;
+            this.level = 0;
         } else if (arg === 'next') {
-            Game.level++;
+            this.level++;
         }
-        Game.set();
-    },
-    delLives: function (val) {
+        this.set();
+    }
+    delLives(val) {
         Player.lives -= val;
         if (Player.lives <= 0) {
             Player.lives = 0;
-            Game.finish("fail");
+            this.finish("fail");
         }
-    },
-    addLives: function (val) {
+    }
+    addLives(val) {
         Player.lives += val;
         if (Player.lives > Player.maxLives) {
             Player.lives = Player.maxLives;
         }
     }
-};
+    loop() {
+        if (!this.isPaused && !this.isFinished) {
+            Collisions.Missiles();
+            Collisions.Explodes();
 
-function loop() {
-    if (!Game.isPaused && !Game.isFinished) {
-        Collisions.Missiles();
-        Collisions.Explodes();
+            Enemies.move();
+            Missiles.move();
+            Enemies.shoot();
 
-        Enemies.move();
-        Missiles.move();
-        Enemies.shoot();
+            if (Keys.left) {
+                Player.moveLeft();
+            }
+            if (Keys.right) {
+                Player.moveRight();
+            }
+            if (Keys.ctrl) {
+                Player.shoot(BULLET);
+            }
+            if (Keys.Z && this.isBombEnabled) {
+                Player.shoot(BOMB);
+            }
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (Keys.left) {
-            Player.moveLeft();
+            Draw.All();
         }
-        if (Keys.right) {
-            Player.moveRight();
-        }
-        if (Keys.ctrl) {
-            Player.shoot(BULLET);
-        }
-        if (Keys.Z && Game.isBombEnabled) {
-            Player.shoot(BOMB);
-        }
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        Draw.All();
     }
-
 }
 
+var Game = new Invaders();
 Game.startGame();
