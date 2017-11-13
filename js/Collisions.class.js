@@ -1,9 +1,9 @@
 class Collisions {
     Explodes() {
-        var e = Enemies.list;
-        var ex = Missiles.explodes;
-        for (var j = 0; j < ex.length; j++) {
-            for (var i = 0; i < e.length; i++) {
+        let e = Enemies.list;
+        let ex = Missiles.explodes;
+        for (let j = 0; j < ex.length; j++) {
+            for (let i = 0; i < e.length; i++) {
                 let r = {
                     x: e[i].x,
                     y: e[i].y,
@@ -30,10 +30,10 @@ class Collisions {
         }
     }
     Missiles() {
-        var e = Enemies.list;
-        var pb = Missiles.playerMissiles;
-        for (var i = 0; i < e.length; i++) {
-            for (var j = 0; j < pb.length; j++) {
+        let e = Enemies.list;
+        let pb = Missiles.playerMissiles;
+        for (let i = 0; i < e.length; i++) {
+            for (let j = 0; j < pb.length; j++) {
                 if (e.length > i && pb.length > j
                         && pb[j].x + Missiles.size >= e[i].x
                         && pb[j].x <= e[i].x + Enemies.width
@@ -55,8 +55,8 @@ class Collisions {
             }
         }
 
-        var eb = Missiles.enemiesMissiles;
-        for (var j = 0; j < eb.length; j++) {
+        let eb = Missiles.enemiesMissiles;
+        for (let j = 0; j < eb.length; j++) {
             if (eb.length > j
                     && eb[j].x + Missiles.size >= Player.x
                     && eb[j].x <= Player.x + Player.width
@@ -70,8 +70,8 @@ class Collisions {
         return Math.pow(circle.x - point.x, 2) + Math.pow(circle.y - point.y, 2) < circle.r * circle.r;
     }
     RectCircleColliding(circle, rect) {
-        var distX = Math.abs(circle.x - rect.x - rect.w / 2);
-        var distY = Math.abs(circle.y - rect.y - rect.h / 2);
+        let distX = Math.abs(circle.x - rect.x - rect.w / 2);
+        let distY = Math.abs(circle.y - rect.y - rect.h / 2);
 
         if (distX > (rect.w / 2 + circle.r)) {
             return false;
@@ -87,8 +87,8 @@ class Collisions {
             return true;
         }
 
-        var dx = distX - rect.w / 2;
-        var dy = distY - rect.h / 2;
+        let dx = distX - rect.w / 2;
+        let dy = distY - rect.h / 2;
         return (dx * dx + dy * dy <= (circle.r * circle.r));
     }
 }

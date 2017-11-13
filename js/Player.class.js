@@ -14,7 +14,7 @@ class Player {
     }
     moveLeft() {
         if (this.allowMoveLeft) {
-            var step = this.step;
+            let step = this.step;
             if (this.x >= step) {
                 this.x -= step;
             }
@@ -22,7 +22,7 @@ class Player {
     }
     moveRight() {
         if (this.allowMoveRight) {
-            var step = this.step;
+            let step = this.step;
             if (this.x <= canvas.width - this.width - step) {
                 this.x += step;
             }

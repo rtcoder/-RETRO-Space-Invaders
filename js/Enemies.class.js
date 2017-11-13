@@ -26,8 +26,8 @@ class Enemies {
         }
     }
     move() {
-        var e = this.list;
-        for (var i = 0; i < e.length; i++) {
+        let e = this.list;
+        for (let i = 0; i < e.length; i++) {
             e[i].x += this.moveBack ? -this.step : this.step;
         }
         if ((!this.moveBack && e[e.length - 1].x + this.width > canvas.width)

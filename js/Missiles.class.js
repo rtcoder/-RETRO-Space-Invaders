@@ -8,15 +8,15 @@ class Missiles {
         this.enemiesMissiles = new Array();
     }
     move() {
-        var pb = this.playerMissiles;
-        var eb = this.enemiesMissiles;
-        for (var i = 0; i < pb.length; i++) {
+        let pb = this.playerMissiles;
+        let eb = this.enemiesMissiles;
+        for (let i = 0; i < pb.length; i++) {
             pb[i].y -= this.step;
             if (pb[i].y < 0) {
                 pb.splice(i, 1);
             }
         }
-        for (var i = 0; i < eb.length; i++) {
+        for (let i = 0; i < eb.length; i++) {
             eb[i].y += this.step;
             if (eb[i].y > canvas.height) {
                 eb.splice(i, 1);
