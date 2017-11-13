@@ -1,9 +1,9 @@
 var levels = [
     {
-        cols: 4,
-        rows: 4,
+        cols: 30,
+        rows: 12,
         enemiesShootInterval: 1000,
-        playerShootInterval: 800,
+        playerShootInterval: 80,
         enemiesColor: 'rgba(255, 0, 0, 0.7)'
     },
     {
@@ -25,20 +25,55 @@ var levels = [
         rows: 7,
         enemiesShootInterval: 500,
         playerShootInterval: 500,
-        enemiesColor: 'rgba(255, 0, 0, 0.7)'
+        enemiesColor: 'yellow'
     },
     {
         cols: 9,
         rows: 7,
         enemiesShootInterval: 400,
         playerShootInterval: 400,
-        enemiesColor: 'rgba(255, 0, 0, 0.7)'
+        enemiesColor: 'pink'
     },
     {
         cols: 10,
         rows: 9,
         enemiesShootInterval: 3000,
         playerShootInterval: 3000,
-        enemiesColor: 'rgba(255, 0, 0, 0.7)'
-    }
+        enemiesColor: 'purple'
+    },
+    {
+        cols: 10,
+        rows: 9,
+        enemiesShootInterval: 3000,
+        playerShootInterval: 3000,
+        enemiesColor: 'purple'
+    },
+    {
+        cols: 10,
+        rows: 9,
+        enemiesShootInterval: 3000,
+        playerShootInterval: 3000,
+        enemiesColor: 'purple'
+    },
+    {
+        cols: 10,
+        rows: 9,
+        enemiesShootInterval: 3000,
+        playerShootInterval: 3000,
+        enemiesColor: 'purple'
+    },
+    {
+        cols: 10,
+        rows: 9,
+        enemiesShootInterval: 3000,
+        playerShootInterval: 3000,
+        enemiesColor: 'purple'
+    },
+    {
+        cols: 10,
+        rows: 9,
+        enemiesShootInterval: 3000,
+        playerShootInterval: 3000,
+        enemiesColor: 'purple'
+    },
 ];
