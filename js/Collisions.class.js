@@ -66,6 +66,20 @@ class Collisions {
             }
         }
     }
+    Packages() {
+        let extras = Extras.list;
+        for (let j in extras) {
+            if (extras.length > j
+                    && extras[j].x + extras[j].size >= Player.x
+                    && extras[j].x <= Player.x + Player.width
+                    && extras[j].y + extras[j].size >= Player.y
+                    && extras[j].y <= Player.y + Player.height) {
+
+                extras[j].set();
+                extras.splice(j, 1);
+            }
+        }
+    }
     PointCircleColliding(circle, point) {
         return Math.pow(circle.x - point.x, 2) + Math.pow(circle.y - point.y, 2) < circle.r * circle.r;
     }
