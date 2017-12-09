@@ -9,7 +9,7 @@ class Draw {
         }
         ctx.beginPath();
         ctx.rect(Player.x, Player.y, width, Player.height);
-        ctx.rect(Player.x + Player.width / 2 - 5, Player.y - 10, 10, 10);
+        ctx.rect(Player.x + width / 2 - 5, Player.y - 10, 10, 10);
         ctx.fillStyle = Player.color;
         ctx.fill();
         ctx.stroke();
