@@ -45,11 +45,11 @@ class Extras {
     countDown() {
         let ae = this.activeExtras;
         for (let i in ae) {
-            ae[i].remaningTime -= Game.loopMilisconds;
             if (ae[i].remaningTime <= 0) {
-                ae.splice(i, 1);
+                delete ae[i];
                 document.getElementById(i + 'Container').style = 'display:none';
             } else {
+                ae[i].remaningTime -= Game.loopMilisconds;
                 document.getElementById(i).innerHTML = Math.floor(ae[i].remaningTime / 1000) + 's';
                 document.getElementById(i + 'Container').style = 'display:inline';
             }
