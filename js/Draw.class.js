@@ -60,6 +60,20 @@ class Draw {
         ctx.lineWidth = 1;
         ctx.stroke();
     }
+    packages() {
+        ctx.beginPath();
+        let e = Extras.list;
+        for (let i in e) {
+            let x = e[i].x;
+            let y = e[i].y;
+            ctx.moveTo(x, y);
+            ctx.arc(x, y, e[i].size / 2, 0, 2 * Math.PI, false);
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
+        }
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
     explodes() {
         ctx.beginPath();
         let ex = Missiles.explodes;
@@ -74,6 +88,7 @@ class Draw {
     }
     All() {
         this.background();
+        this.packages();
         this.enemies();
         this.missiles();
         this.explodes();
