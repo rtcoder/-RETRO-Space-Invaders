@@ -3,8 +3,12 @@ class Draw {
         this.backgroundColor = '#000';
     }
     player() {
+        let width = Player.width;
+        if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+            width = 100;
+        }
         ctx.beginPath();
-        ctx.rect(Player.x, Player.y, Player.width, Player.height);
+        ctx.rect(Player.x, Player.y, width, Player.height);
         ctx.rect(Player.x + Player.width / 2 - 5, Player.y - 10, 10, 10);
         ctx.fillStyle = Player.color;
         ctx.fill();
