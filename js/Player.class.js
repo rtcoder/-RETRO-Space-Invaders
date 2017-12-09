@@ -7,6 +7,7 @@ class Player {
         this.shootInterval = 1000;
         this.step = 3;
         this.width = 30;
+        this.largeWidth = 100;
         this.height = 15;
         this.x = 0;
         this.y = canvas.height - this.height;
@@ -37,14 +38,14 @@ class Player {
 
     shoot(type) {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {
-            if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+            if (typeof Extras.activeExtras.doubleShoot !== 'undefined') {
                 let obj1 = {
                     x: this.x,
                     y: this.y - this.height,
                     type: type
                 };
                 let obj2 = {
-                    x: this.x + this.width,
+                    x: this.x + this.largeWidth,
                     y: this.y - this.height,
                     type: type
                 };

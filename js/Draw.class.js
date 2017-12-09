@@ -5,7 +5,7 @@ class Draw {
     player() {
         let width = Player.width;
         if (typeof Extras.activeExtras.largeShip !== 'undefined') {
-            width = 100;
+            width = Player.largeWidth;
         }
         ctx.beginPath();
         ctx.rect(Player.x, Player.y, width, Player.height);
