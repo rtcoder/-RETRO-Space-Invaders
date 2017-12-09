@@ -56,10 +56,14 @@ class Collisions {
         }
 
         let eb = Missiles.enemiesMissiles;
+        let playerWidth = Player.width;
+        if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+            playerWidth = Player.largeWidth;
+        }
         for (let j in eb) {
             if (eb.length > j
                     && eb[j].x + Missiles.size >= Player.x
-                    && eb[j].x <= Player.x + Player.width
+                    && eb[j].x <= Player.x + playerWidth
                     && eb[j].y + Missiles.size >= Player.y
                     && eb[j].y <= Player.y + Player.height) {
                 Game.finish('fail');
@@ -68,10 +72,14 @@ class Collisions {
     }
     Packages() {
         let extras = Extras.list;
+        let playerWidth = Player.width;
+        if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+            playerWidth = Player.largeWidth;
+        }
         for (let j in extras) {
             if (extras.length > j
                     && extras[j].x + extras[j].size >= Player.x
-                    && extras[j].x <= Player.x + Player.width
+                    && extras[j].x <= Player.x + playerWidth
                     && extras[j].y + extras[j].size >= Player.y
                     && extras[j].y <= Player.y + Player.height) {
 
