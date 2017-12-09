@@ -15,6 +15,9 @@ class Player {
     moveLeft() {
         if (this.allowMoveLeft) {
             let step = this.step;
+            if (typeof Extras.activeExtras.superSpeed !== 'undefined') {
+                step *= 2;
+            }
             if (this.x >= step) {
                 this.x -= step;
             }
@@ -23,6 +26,9 @@ class Player {
     moveRight() {
         if (this.allowMoveRight) {
             let step = this.step;
+            if (typeof Extras.activeExtras.superSpeed !== 'undefined') {
+                step *= 2;
+            }
             if (this.x <= canvas.width - this.width - step) {
                 this.x += step;
             }
@@ -31,13 +37,29 @@ class Player {
 
     shoot(type) {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {
-            let arr = {
-                x: this.x + this.width / 2,
-                y: this.y - this.height,
-                type: type
-            };
+            if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+                let obj1 = {
+                    x: this.x,
+                    y: this.y - this.height,
+                    type: type
+                };
+                let obj2 = {
+                    x: this.x + this.width,
+                    y: this.y - this.height,
+                    type: type
+                };
 
-            Missiles.playerMissiles.push(arr);
+                Missiles.playerMissiles.push(obj1);
+                Missiles.playerMissiles.push(obj2);
+            } else {
+                let obj = {
+                    x: this.x + this.width / 2,
+                    y: this.y - this.height,
+                    type: type
+                };
+
+                Missiles.playerMissiles.push(obj);
+            }
             this.lastShootTime = new Date().getTime();
         }
     }

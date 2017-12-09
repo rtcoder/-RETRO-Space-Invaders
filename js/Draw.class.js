@@ -3,8 +3,12 @@ class Draw {
         this.backgroundColor = '#000';
     }
     player() {
+        let width = Player.width;
+        if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+            width = 100;
+        }
         ctx.beginPath();
-        ctx.rect(Player.x, Player.y, Player.width, Player.height);
+        ctx.rect(Player.x, Player.y, width, Player.height);
         ctx.rect(Player.x + Player.width / 2 - 5, Player.y - 10, 10, 10);
         ctx.fillStyle = Player.color;
         ctx.fill();
@@ -20,7 +24,7 @@ class Draw {
     }
     enemies() {
         let e = Enemies.list;
-        for (let i = 0; i < e.length; i++) {
+        for (let i in e) {
             if (!e[i].isKilled) {
                 ctx.beginPath();
                 ctx.rect(e[i].x, e[i].y, Enemies.width, Enemies.height / 2);
@@ -34,7 +38,7 @@ class Draw {
     missiles() {
         ctx.beginPath();
         let pb = Missiles.playerMissiles;
-        for (let i = 0; i < pb.length; i++) {
+        for (let i in pb) {
             let x = pb[i].x;
             let y = pb[i].y;
             let size = Missiles.size;
@@ -49,12 +53,26 @@ class Draw {
             ctx.fill();
         }
         let eb = Missiles.enemiesMissiles;
-        for (let i = 0; i < eb.length; i++) {
+        for (let i in eb) {
             let x = eb[i].x;
             let y = eb[i].y;
             ctx.moveTo(x, y);
             ctx.arc(x, y, Missiles.size / 2, 0, 2 * Math.PI, false);
             ctx.fillStyle = '#fff';
+            ctx.fill();
+        }
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
+    packages() {
+        ctx.beginPath();
+        let e = Extras.list;
+        for (let i in e) {
+            let x = e[i].x;
+            let y = e[i].y;
+            ctx.moveTo(x, y);
+            ctx.arc(x, y, e[i].size / 2, 0, 2 * Math.PI, false);
+            ctx.fillStyle = 'yellow';
             ctx.fill();
         }
         ctx.lineWidth = 1;
@@ -74,6 +92,7 @@ class Draw {
     }
     All() {
         this.background();
+        this.packages();
         this.enemies();
         this.missiles();
         this.explodes();
