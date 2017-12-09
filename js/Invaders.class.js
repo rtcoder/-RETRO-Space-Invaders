@@ -54,7 +54,7 @@ class Invaders {
         }
     }
     loop() {
-        if (!Game.isPaused && !Game.isFinished) {
+        if (!Game.isPaused && !Game.isFinished && document.hasFocus()) {
             Collisions.Missiles();
             Collisions.Explodes();
 
