@@ -6,7 +6,7 @@ class Player {
         this.lastShootTime = null;
         this.shootInterval = 1000;
         this.step = 3;
-        this.width = 30;
+        this.width = 50;
         this.largeWidth = 100;
         this.height = 15;
         this.x = 0;
@@ -38,6 +38,10 @@ class Player {
 
     shoot(type) {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {
+            let width = this.width;
+            if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+                width = this.largeWidth;
+            }
             if (typeof Extras.activeExtras.doubleShoot !== 'undefined') {
                 let obj1 = {
                     x: this.x,
@@ -45,7 +49,7 @@ class Player {
                     type: type
                 };
                 let obj2 = {
-                    x: this.x + this.largeWidth,
+                    x: this.x + width,
                     y: this.y - this.height,
                     type: type
                 };
@@ -54,7 +58,7 @@ class Player {
                 Missiles.playerMissiles.push(obj2);
             } else {
                 let obj = {
-                    x: this.x + this.width / 2,
+                    x: this.x + width / 2,
                     y: this.y - this.height,
                     type: type
                 };
