@@ -57,9 +57,13 @@ class Invaders {
         if (!Game.isPaused && !Game.isFinished && document.hasFocus()) {
             Collisions.Missiles();
             Collisions.Explodes();
+            Collisions.Packages();
 
             Enemies.move();
             Missiles.move();
+            Extras.addPackage();
+            Extras.move();
+            Extras.countDown();
             Enemies.shoot();
 
             if (Keys.left) {
