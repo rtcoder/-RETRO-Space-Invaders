@@ -23,7 +23,7 @@ class Extras {
 
     move() {
         let extras = this.list;
-        for (let i = 0; i < extras.length; i++) {
+        for (let i in extras) {
             extras[i].y += this.step;
             if (extras[i].y > canvas.height) {
                 extras.splice(i, 1);

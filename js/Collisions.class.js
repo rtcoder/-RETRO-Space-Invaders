@@ -2,8 +2,8 @@ class Collisions {
     Explodes() {
         let e = Enemies.list;
         let ex = Missiles.explodes;
-        for (let j = 0; j < ex.length; j++) {
-            for (let i = 0; i < e.length; i++) {
+        for (let j in ex) {
+            for (let i in e) {
                 let r = {
                     x: e[i].x,
                     y: e[i].y,
@@ -32,8 +32,8 @@ class Collisions {
     Missiles() {
         let e = Enemies.list;
         let pb = Missiles.playerMissiles;
-        for (let i = 0; i < e.length; i++) {
-            for (let j = 0; j < pb.length; j++) {
+        for (let i in e) {
+            for (let j in pb) {
                 if (e.length > i && pb.length > j
                         && pb[j].x + Missiles.size >= e[i].x
                         && pb[j].x <= e[i].x + Enemies.width
@@ -56,7 +56,7 @@ class Collisions {
         }
 
         let eb = Missiles.enemiesMissiles;
-        for (let j = 0; j < eb.length; j++) {
+        for (let j in eb) {
             if (eb.length > j
                     && eb[j].x + Missiles.size >= Player.x
                     && eb[j].x <= Player.x + Player.width

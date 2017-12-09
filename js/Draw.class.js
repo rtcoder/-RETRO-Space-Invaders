@@ -20,7 +20,7 @@ class Draw {
     }
     enemies() {
         let e = Enemies.list;
-        for (let i = 0; i < e.length; i++) {
+        for (let i in e) {
             if (!e[i].isKilled) {
                 ctx.beginPath();
                 ctx.rect(e[i].x, e[i].y, Enemies.width, Enemies.height / 2);
@@ -34,7 +34,7 @@ class Draw {
     missiles() {
         ctx.beginPath();
         let pb = Missiles.playerMissiles;
-        for (let i = 0; i < pb.length; i++) {
+        for (let i in pb) {
             let x = pb[i].x;
             let y = pb[i].y;
             let size = Missiles.size;
@@ -49,7 +49,7 @@ class Draw {
             ctx.fill();
         }
         let eb = Missiles.enemiesMissiles;
-        for (let i = 0; i < eb.length; i++) {
+        for (let i in eb) {
             let x = eb[i].x;
             let y = eb[i].y;
             ctx.moveTo(x, y);
