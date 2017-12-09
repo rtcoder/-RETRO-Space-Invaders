@@ -37,13 +37,15 @@ class Draw {
         for (let i = 0; i < pb.length; i++) {
             let x = pb[i].x;
             let y = pb[i].y;
+            let size = Missiles.size;
             ctx.moveTo(x, y);
-            ctx.arc(x, y, Missiles.size / 2, 0, 2 * Math.PI, false);
             if (pb[i].type === BULLET) {
                 ctx.fillStyle = '#fff';
             } else if (pb[i].type === BOMB) {
                 ctx.fillStyle = '#00f';
+                size *= 2;
             }
+            ctx.arc(x, y, size / 2, 0, 2 * Math.PI, false);
             ctx.fill();
         }
         let eb = Missiles.enemiesMissiles;
