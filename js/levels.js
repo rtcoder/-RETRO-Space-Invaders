@@ -1,12 +1,5 @@
 var levels = [
     {
-        cols: 30,
-        rows: 12,
-        enemiesShootInterval: 1000,
-        playerShootInterval: 80,
-        enemiesColor: 'rgba(255, 0, 0, 0.7)'
-    },
-    {
         cols: 7,
         rows: 5,
         enemiesShootInterval: 700,
