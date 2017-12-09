@@ -26,11 +26,15 @@ class Player {
     }
     moveRight() {
         if (this.allowMoveRight) {
+            let width = this.width;
+            if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+                width = this.largeWidth;
+            }
             let step = this.step;
             if (typeof Extras.activeExtras.superSpeed !== 'undefined') {
                 step *= 2;
             }
-            if (this.x <= canvas.width - this.width - step) {
+            if (this.x <= canvas.width - width - step) {
                 this.x += step;
             }
         }
