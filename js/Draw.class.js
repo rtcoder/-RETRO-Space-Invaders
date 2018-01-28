@@ -11,6 +11,7 @@ class Draw {
         ctx.rect(Player.x, Player.y, width, Player.height);
         ctx.rect(Player.x + width / 2 - 5, Player.y - 10, 10, 10);
         ctx.fillStyle = Player.color;
+        ctx.strokeStyle = 'transparent';
         ctx.fill();
         ctx.stroke();
     }
@@ -27,6 +28,7 @@ class Draw {
         for (let i in e) {
             if (!e[i].isKilled) {
                 ctx.beginPath();
+                ctx.strokeStyle = 'transparent';
                 ctx.rect(e[i].x, e[i].y, Enemies.width, Enemies.height / 2);
                 ctx.rect(e[i].x + Enemies.width / 2 - 5, e[i].y + 10, 10, Enemies.height / 2);
                 ctx.fillStyle = Enemies.color;
@@ -36,13 +38,14 @@ class Draw {
         }
     }
     missiles() {
-        ctx.beginPath();
         let pb = Missiles.playerMissiles;
         for (let i in pb) {
+            ctx.beginPath();
             let x = pb[i].x;
             let y = pb[i].y;
             let size = Missiles.size;
             ctx.moveTo(x, y);
+            ctx.strokeStyle = 'transparent';
             if (pb[i].type === BULLET) {
                 ctx.fillStyle = '#fff';
             } else if (pb[i].type === BOMB) {
@@ -51,32 +54,36 @@ class Draw {
             }
             ctx.arc(x, y, size / 2, 0, 2 * Math.PI, false);
             ctx.fill();
+            ctx.lineWidth = 1;
+            ctx.stroke();
         }
         let eb = Missiles.enemiesMissiles;
         for (let i in eb) {
+            ctx.beginPath();
             let x = eb[i].x;
             let y = eb[i].y;
             ctx.moveTo(x, y);
             ctx.arc(x, y, Missiles.size / 2, 0, 2 * Math.PI, false);
             ctx.fillStyle = '#fff';
             ctx.fill();
+            ctx.lineWidth = 1;
+            ctx.stroke();
         }
-        ctx.lineWidth = 1;
-        ctx.stroke();
     }
     packages() {
-        ctx.beginPath();
         let e = Extras.list;
         for (let i in e) {
+            ctx.beginPath();
             let x = e[i].x;
             let y = e[i].y;
             ctx.moveTo(x, y);
             ctx.arc(x, y, e[i].size / 2, 0, 2 * Math.PI, false);
-            ctx.fillStyle = 'yellow';
+            ctx.strokeStyle = "#fff";
+            ctx.fillStyle = e[i].color;
             ctx.fill();
+            ctx.lineWidth = 1;
+            ctx.stroke();
         }
-        ctx.lineWidth = 1;
-        ctx.stroke();
     }
     explodes() {
         ctx.beginPath();
@@ -87,6 +94,7 @@ class Draw {
         }
         ctx.lineWidth = 1;
         ctx.fillStyle = '#00f';
+        ctx.strokeStyle = 'transparent';
         ctx.fill();
         ctx.stroke();
     }

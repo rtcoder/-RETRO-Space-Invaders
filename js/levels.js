@@ -5,7 +5,7 @@ var levels = [
         enemiesShootInterval: 700,
         playerShootInterval: 700,
         enemiesColor: 'blue',
-        isBombEnabled: false
+        isBombEnabled: true
     },
     {
         cols: 7,

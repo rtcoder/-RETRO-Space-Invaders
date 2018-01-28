@@ -3,22 +3,25 @@ class Extras {
         this.types = [
             {
                 name: 'doubleShoot',
-                remaningTime: 10000
+                remaningTime: 10000,
+                color: 'yellow'
             },
             {
                 name: 'largeShip',
-                remaningTime: 10000
+                remaningTime: 15000,
+                color: 'red'
             },
             {
                 name: 'superSpeed',
-                remaningTime: 10000
+                remaningTime: 10000,
+                color: 'yellow'
             }
         ];
         this.activeExtras = [];
-        this.interval = 3000;
+        this.interval = 1000;
         this.list = [];
         this.lastDropTime = null;
-        this.step = 2;
+        this.step = 1;
     }
 
     move() {

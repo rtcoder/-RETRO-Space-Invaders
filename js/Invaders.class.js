@@ -28,6 +28,7 @@ class Invaders {
         Enemies.shootInterval = levels[this.level].enemiesShootInterval;
         Enemies.color = levels[this.level].enemiesColor;
         Player.shootInterval = levels[this.level].playerShootInterval;
+        Extras.list = [];
         Extras.activeExtras = [];
         for (let i in Extras.types) {
             document.getElementById(Extras.types[i].name + 'Container').style = 'display:none';
@@ -90,6 +91,3 @@ class Invaders {
 
     }
 }
-
-var Game = new Invaders();
-Game.startGame();
