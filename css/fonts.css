@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "C64 Pro Mono Local";
+    src: url("../fonts/C64/C64_Pro_Mono-STYLE.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "C64 Pro Mono Local";
+    src: url('../fonts/C64/C64_Pro_Mono-STYLE.svg#C64ProMono') format('svg');
+}
+
+@font-face {
+    font-family: "C64 Pro Mono Local";
+    src: url('../fonts/C64/C64_Pro_Mono-STYLE.eot');
+    src: url('../fonts/C64/C64_Pro_Mono-STYLE.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: "C64 Pro Mono Local";
+    src: url("../fonts/C64/C64_Pro_Mono-STYLE.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "C64 Pro Local";
+    src: url("../fonts/C64/C64_Pro-STYLE.woff2") format("woff2");
+}
+
+
+@font-face {
+    font-family: "C64 Pro Local";
+    src: url('../fonts/C64/C64_Pro-STYLE.svg#C64Pro') format('svg');
+}
+
+@font-face {
+    font-family: "C64 Pro Local";
+    src: url('../fonts/C64/C64_Pro-STYLE.eot');
+    src: url('../fonts/C64/C64_Pro-STYLE.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: "C64 Pro Local";
+    src: url("../fonts/C64/C64_Pro-STYLE.ttf") format("truetype");
+}
