@@ -26,8 +26,31 @@ body{
         height: calc(100% - 30px);
         float: left;
     }
+    #menu{
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: #000;
+        display: flex;
+        ul{
+            align-self: center;
+            width: 100vw;
+            list-style: none;
+            text-align: center;
+            li{
+                color: #fff;
+                cursor: pointer;
+                font-size:30px;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
 }
-
+.hidden{
+    display: none !important;
+}
 .right{
     float: right
 }

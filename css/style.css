@@ -27,6 +27,30 @@ body canvas {
   height: calc(70%);
   float: left;
 }
+body #menu {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: #000;
+  display: flex;
+}
+body #menu ul {
+  align-self: center;
+  width: 100vw;
+  list-style: none;
+  text-align: center;
+}
+body #menu ul li {
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+}
+body #menu ul li:hover {
+  text-decoration: underline;
+}
+.hidden {
+  display: none !important;
+}
 .right {
   float: right;
 }
