@@ -1,26 +1,26 @@
 class Collisions {
     Explodes() {
-        let e = Enemies.list;
-        let ex = Missiles.explodes;
+        let e = enemies.list;
+        let ex = missiles.explodes;
         for (let j in ex) {
             for (let i in e) {
                 let r = {
                     x: e[i].x,
                     y: e[i].y,
-                    w: Enemies.width,
-                    h: Enemies.height
+                    w: enemies.width,
+                    h: enemies.height
                 };
                 let c = {
                     x: ex[j].x,
                     y: ex[j].y,
-                    r: Missiles.explodeRadius
+                    r: missiles.explodeRadius
                 };
                 if (e.length > i && ex.length > j
                         && this.RectCircleColliding(c, r)
                         && !e[i].isKilled) {
 
                     e[i].isKilled = true;
-                    Enemies.countAlive();
+                    enemies.countAlive();
                 }
             }
             ex[j].t--;
@@ -30,61 +30,61 @@ class Collisions {
         }
     }
     Missiles() {
-        let e = Enemies.list;
-        let pb = Missiles.playerMissiles;
+        let e = enemies.list;
+        let pb = missiles.playerMissiles;
         for (let i in e) {
             for (let j in pb) {
                 if (e.length > i && pb.length > j
-                        && pb[j].x + Missiles.size >= e[i].x
-                        && pb[j].x <= e[i].x + Enemies.width
-                        && pb[j].y + Missiles.size >= e[i].y
-                        && pb[j].y <= e[i].y + Enemies.height
+                        && pb[j].x + missiles.size >= e[i].x
+                        && pb[j].x <= e[i].x + enemies.width
+                        && pb[j].y + missiles.size >= e[i].y
+                        && pb[j].y <= e[i].y + enemies.height
                         && !e[i].isKilled) {
                     if (pb[j].type === BULLET) {
                         e[i].isKilled = true;
                     } else if (pb[j].type === BOMB) {
-                        Missiles.explodes.push({
+                        missiles.explodes.push({
                             x: pb[j].x,
                             y: pb[j].y,
                             t: 10
                         });
                     }
                     pb.splice(j, 1);
-                    Enemies.countAlive();
+                    enemies.countAlive();
                 }
             }
         }
 
-        let eb = Missiles.enemiesMissiles;
-        let playerWidth = Player.width;
-        if (typeof Extras.activeExtras.largeShip !== 'undefined') {
-            playerWidth = Player.largeWidth;
+        let eb = missiles.enemiesMissiles;
+        let playerWidth = player.width;
+        if (typeof extras.activeExtras.largeShip !== 'undefined') {
+            playerWidth = player.largeWidth;
         }
         for (let j in eb) {
             if (eb.length > j
-                    && eb[j].x + Missiles.size >= Player.x
-                    && eb[j].x <= Player.x + playerWidth
-                    && eb[j].y + Missiles.size >= Player.y
-                    && eb[j].y <= Player.y + Player.height) {
+                    && eb[j].x + missiles.size >= player.x
+                    && eb[j].x <= player.x + playerWidth
+                    && eb[j].y + missiles.size >= player.y
+                    && eb[j].y <= player.y + player.height) {
                 Game.finish('fail');
             }
         }
     }
     Packages() {
-        let extras = Extras.list;
-        let playerWidth = Player.width;
-        if (typeof Extras.activeExtras.largeShip !== 'undefined') {
-            playerWidth = Player.largeWidth;
+        let ex = extras.list;
+        let playerWidth = player.width;
+        if (typeof extras.activeExtras.largeShip !== 'undefined') {
+            playerWidth = player.largeWidth;
         }
-        for (let j in extras) {
-            if (extras.length > j
-                    && extras[j].x + extras[j].size >= Player.x
-                    && extras[j].x <= Player.x + playerWidth
-                    && extras[j].y + extras[j].size >= Player.y
-                    && extras[j].y <= Player.y + Player.height) {
+        for (let j in ex) {
+            if (ex.length > j
+                    && ex[j].x + ex[j].size >= player.x
+                    && ex[j].x <= player.x + playerWidth
+                    && ex[j].y + ex[j].size >= player.y
+                    && ex[j].y <= player.y + player.height) {
 
-                extras[j].set();
-                extras.splice(j, 1);
+                ex[j].set();
+                ex.splice(j, 1);
             }
         }
     }

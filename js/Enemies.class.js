@@ -50,10 +50,10 @@ class Enemies {
                     c++;
                     if (c === random) {
                         let arr = {
-                            x: this.list[i].x + Missiles.size / 2,
-                            y: this.list[i].y + Missiles.size
+                            x: this.list[i].x + missiles.size / 2,
+                            y: this.list[i].y + missiles.size
                         };
-                        Missiles.enemiesMissiles.push(arr);
+                        missiles.enemiesMissiles.push(arr);
                         this.lastShootTime = new Date().getTime();
                     }
                 }

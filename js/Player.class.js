@@ -16,7 +16,7 @@ class Player {
     moveLeft() {
         if (this.allowMoveLeft) {
             let step = this.step;
-            if (typeof Extras.activeExtras.superSpeed !== 'undefined') {
+            if (typeof extras.activeExtras.superSpeed !== 'undefined') {
                 step *= 2;
             }
             if (this.x >= step) {
@@ -27,11 +27,11 @@ class Player {
     moveRight() {
         if (this.allowMoveRight) {
             let width = this.width;
-            if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+            if (typeof extras.activeExtras.largeShip !== 'undefined') {
                 width = this.largeWidth;
             }
             let step = this.step;
-            if (typeof Extras.activeExtras.superSpeed !== 'undefined') {
+            if (typeof extras.activeExtras.superSpeed !== 'undefined') {
                 step *= 2;
             }
             if (this.x <= canvas.width - width - step) {
@@ -43,10 +43,10 @@ class Player {
     shoot(type) {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {
             let width = this.width;
-            if (typeof Extras.activeExtras.largeShip !== 'undefined') {
+            if (typeof extras.activeExtras.largeShip !== 'undefined') {
                 width = this.largeWidth;
             }
-            if (typeof Extras.activeExtras.doubleShoot !== 'undefined') {
+            if (typeof extras.activeExtras.doubleShoot !== 'undefined') {
                 let obj1 = {
                     x: this.x,
                     y: this.y - this.height,
@@ -58,8 +58,8 @@ class Player {
                     type: type
                 };
 
-                Missiles.playerMissiles.push(obj1);
-                Missiles.playerMissiles.push(obj2);
+                missiles.playerMissiles.push(obj1);
+                missiles.playerMissiles.push(obj2);
             } else {
                 let obj = {
                     x: this.x + width / 2,
@@ -67,7 +67,7 @@ class Player {
                     type: type
                 };
 
-                Missiles.playerMissiles.push(obj);
+                missiles.playerMissiles.push(obj);
             }
             this.lastShootTime = new Date().getTime();
         }

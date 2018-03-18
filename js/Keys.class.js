@@ -16,28 +16,28 @@ document.onkeydown = function (e) {
     e = e || window.event;
     switch (e.keyCode) {
         case 16:
-            Keys.shift = true;
+            keys.shift = true;
             break;
         case 17:
-            Keys.ctrl = true;
+            keys.ctrl = true;
             break;
         case 27:
             Game.isPaused = !Game.isPaused;
             break;
         case 32:
-            Keys.space = true;
+            keys.space = true;
             break;
         case 37:
-            Keys.left = true;
+            keys.left = true;
             break;
         case 39:
-            Keys.right = true;
+            keys.right = true;
             break;
         case 88:
-            Keys.X = true;
+            keys.X = true;
             break;
         case 90:
-            Keys.Z = true;
+            keys.Z = true;
             break;
     }
 };
@@ -46,25 +46,25 @@ document.onkeyup = function (e) {
 
     switch (e.keyCode) {
         case 16:
-            Keys.shift = false;
+            keys.shift = false;
             break;
         case 17:
-            Keys.ctrl = false;
+            keys.ctrl = false;
             break;
         case 32:
-            Keys.space = false;
+            keys.space = false;
             break;
         case 37:
-            Keys.left = false;
+            keys.left = false;
             break;
         case 39:
-            Keys.right = false;
+            keys.right = false;
             break;
         case 88:
-            Keys.X = false;
+            keys.X = false;
             break;
         case 90:
-            Keys.Z = false;
+            keys.Z = false;
             break;
     }
 };

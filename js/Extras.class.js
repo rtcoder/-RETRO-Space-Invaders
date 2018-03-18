@@ -25,17 +25,17 @@ class Extras {
     }
 
     move() {
-        let extras = this.list;
-        for (let i in extras) {
-            extras[i].y += this.step;
-            if (extras[i].y > canvas.height) {
-                extras.splice(i, 1);
+        let el = this.list;
+        for (let i in el) {
+            el[i].y += this.step;
+            if (el[i].y > canvas.height) {
+                el.splice(i, 1);
             }
         }
     }
 
     addPackage() {
-        if (new Date().getTime() - this.lastDropTime > this.interval || !this.lastDropTime) {
+        if (!this.lastDropTime || new Date().getTime() - this.lastDropTime > this.interval) {
             let count = 0;
             let c = 0;
             let x = getRandomInt(1, canvas.width);

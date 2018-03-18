@@ -1,5 +1,3 @@
-const BULLET = 1;
-const BOMB = 2;
 class Invaders {
     constructor() {
         this.isPaused = false;
@@ -12,31 +10,24 @@ class Invaders {
     startGame() {
         this.isPaused = false;
         this.isFinished = false;
-        Collisions = new Collisions();
-        Draw = new Draw();
-        Enemies = new Enemies();
-        Missiles = new Missiles();
-        Player = new Player();
-        Extras = new Extras();
-        Keys = new Keys();
         this.set();
         this.gameLoop = setInterval(this.loop, this.loopMilisconds);
     }
     set() {
-        Enemies.cols = levels[this.level].cols;
-        Enemies.rows = levels[this.level].rows;
-        Enemies.shootInterval = levels[this.level].enemiesShootInterval;
-        Enemies.color = levels[this.level].enemiesColor;
-        Player.shootInterval = levels[this.level].playerShootInterval;
-        Extras.list = [];
-        Extras.activeExtras = [];
-        for (let i in Extras.types) {
-            document.getElementById(Extras.types[i].name + 'Container').style = 'display:none';
+        enemies.cols = levels[this.level].cols;
+        enemies.rows = levels[this.level].rows;
+        enemies.shootInterval = levels[this.level].enemiesShootInterval;
+        enemies.color = levels[this.level].enemiesColor;
+        player.shootInterval = levels[this.level].playerShootInterval;
+        extras.list = [];
+        extras.activeExtras = [];
+        for (let i in extras.types) {
+            document.getElementById(extras.types[i].name + 'Container').style = 'display:none';
         }
 
         this.isBombEnabled = levels[this.level].isBombEnabled;
         document.getElementById('level').innerHTML = this.level + 1;
-        Enemies.generate();
+        enemies.generate();
     }
     finish(arg) {
         if (arg === 'fail') {
@@ -47,46 +38,46 @@ class Invaders {
         this.set();
     }
     delLives(val) {
-        Player.lives -= val;
-        if (Player.lives <= 0) {
-            Player.lives = 0;
+        player.lives -= val;
+        if (player.lives <= 0) {
+            player.lives = 0;
             this.finish("fail");
         }
     }
     addLives(val) {
-        Player.lives += val;
-        if (Player.lives > Player.maxLives) {
-            Player.lives = Player.maxLives;
+        player.lives += val;
+        if (player.lives > player.maxLives) {
+            player.lives = player.maxLives;
         }
     }
     loop() {
         if (!Game.isPaused && !Game.isFinished && document.hasFocus()) {
-            Collisions.Missiles();
-            Collisions.Explodes();
-            Collisions.Packages();
+            collisions.Missiles();
+            collisions.Explodes();
+            collisions.Packages();
 
-            Enemies.move();
-            Missiles.move();
-            Extras.addPackage();
-            Extras.move();
-            Extras.countDown();
-            Enemies.shoot();
+            enemies.move();
+            missiles.move();
+            extras.addPackage();
+            extras.move();
+            extras.countDown();
+            enemies.shoot();
 
-            if (Keys.left) {
-                Player.moveLeft();
+            if (keys.left) {
+                player.moveLeft();
             }
-            if (Keys.right) {
-                Player.moveRight();
+            if (keys.right) {
+                player.moveRight();
             }
-            if (Keys.ctrl) {
-                Player.shoot(BULLET);
+            if (keys.ctrl) {
+                player.shoot(BULLET);
             }
-            if (Keys.Z && Game.isBombEnabled) {
-                Player.shoot(BOMB);
+            if (keys.Z && Game.isBombEnabled) {
+                player.shoot(BOMB);
             }
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            Draw.All();
+            draw.All();
         }
 
     }
