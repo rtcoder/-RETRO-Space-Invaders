@@ -81,8 +81,10 @@ class Invaders {
                 player.moveTo({x: mouse.xPos});
 
                 if (mouse.left) {
-
                     player.shoot(BULLET);
+                }
+                if (mouse.right && Game.isBombEnabled) {
+                    player.shoot(BOMB);
                 }
             }
             ctx.clearRect(0, 0, canvas.width, canvas.height);

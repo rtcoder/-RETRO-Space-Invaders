@@ -85,6 +85,10 @@ class Mouse {
 
     onMouseup(e, self) {
         self.onMouse(e, self, false);
+
+        if (e.buttons === 0) {
+            self.right = false;
+        }
     }
 
     onMousedown(e, self) {
