@@ -39,6 +39,30 @@ class Player {
             }
         }
     }
+    moveTo(pos) {
+        if (pos.x) {
+            this.x = pos.x;
+        }
+        if (pos.y) {
+            this.y = pos.y;
+        }
+        if (this.y > canvas.height - this.height) {
+            this.y = canvas.height - this.height;
+        }
+        if (this.y < this.height) {
+            this.y = this.height;
+        }
+        let width = this.width;
+        if (typeof extras.activeExtras.largeShip !== 'undefined') {
+            width = this.largeWidth;
+        }
+        if (this.x > canvas.width - width) {
+            this.x = canvas.width - width;
+        }
+        if (this.x < 0) {
+            this.x = 0;
+        }
+    }
 
     shoot(type) {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {

@@ -29,14 +29,28 @@
                     Designed & programmed by <a href="https://github.com/rtcoder">rtCoder</a>
                 </span>
             </div>
+
             <canvas id="canvas"></canvas>
+
             <div id="menu">
                 <ul>
                     <li id="startGame">Play</li>
-                    <li>Equipment</li>
+                    <li class="open-view" data-id="controls">Controls</li>
+                    <li class="open-view" data-id="equipment">Equipment</li>
                     <li>Credits</li>
-
                 </ul>
+            </div>
+
+            <div class="view" id="controls">
+                <button class="back"><-</button>
+                <ul>
+                    <li>Keyboard</li>
+                    <li>Mouse</li>
+                    <li>Gamepad</li>
+                </ul>
+            </div>
+            <div class="view" id="equipment">
+                <button class="back"><-</button>
 
             </div>
         </div>
@@ -44,9 +58,10 @@
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext('2d');
         </script>
-        <script src="js/script.js"></script>
         <script src="js/levels.js"></script>
         <script src="js/custom.js"></script>
+        <script src="js/Controls.class.js"></script>
+        <script src="js/Mouse.class.js"></script>
         <script src="js/Keys.class.js"></script>
         <script src="js/Extras.class.js"></script>
         <script src="js/Package.class.js"></script>
@@ -56,5 +71,6 @@
         <script src="js/Missiles.class.js"></script>
         <script src="js/Player.class.js"></script>
         <script src="js/Invaders.class.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

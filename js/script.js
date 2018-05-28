@@ -1,14 +1,16 @@
 const BULLET = 1;
 const BOMB = 2;
 
-var Game;
-var collisions;
-var draw;
-var enemies;
-var missiles;
-var player;
-var extras;
-var keys;
+var Game = new Invaders();
+var draw = new Draw();
+var enemies = new Enemies();
+var missiles = new Missiles();
+var player = new Player();
+var extras = new Extras();
+var keys = new Keys();
+var mouse = new Mouse();
+var controls = new Controls();
+var collisions = new Collisions();
 (function () {
     function openView(view) {
 
@@ -22,15 +24,6 @@ var keys;
     function startGame() {
         var menu = document.getElementById('menu');
         menu.classList.add('hidden');
-        Game = new Invaders();
-        draw = new Draw();
-        enemies = new Enemies();
-        missiles = new Missiles();
-        player = new Player();
-        extras = new Extras();
-        keys = new Keys();
-        collisions = new Collisions();
-
         Game.startGame();
     }
     document.getElementById('startGame').addEventListener('click', startGame);

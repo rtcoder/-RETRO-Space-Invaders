@@ -63,17 +63,27 @@ class Invaders {
             extras.countDown();
             enemies.shoot();
 
-            if (keys.left) {
-                player.moveLeft();
+            if (controls.keysControl) {
+                if (keys.left) {
+                    player.moveLeft();
+                }
+                if (keys.right) {
+                    player.moveRight();
+                }
+                if (keys.ctrl) {
+                    player.shoot(BULLET);
+                }
+                if (keys.Z && Game.isBombEnabled) {
+                    player.shoot(BOMB);
+                }
             }
-            if (keys.right) {
-                player.moveRight();
-            }
-            if (keys.ctrl) {
-                player.shoot(BULLET);
-            }
-            if (keys.Z && Game.isBombEnabled) {
-                player.shoot(BOMB);
+            if (controls.mouseControl) {
+                player.moveTo({x: mouse.xPos});
+
+                if (mouse.left) {
+
+                    player.shoot(BULLET);
+                }
             }
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
