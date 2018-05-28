@@ -13,28 +13,41 @@ var controls = new Controls();
 var collisions = new Collisions();
 (function () {
     function openView(view) {
-
-        var menu = document.getElementById('menu');
+        let menu = document.getElementById('menu');
         menu.classList.add('hidden');
 
         viewDiv = document.getElementById(view);
         viewDiv.classList.add('visible');
-
     }
+
+    function backToMenu() {
+        let menu = document.getElementById('menu');
+        menu.classList.remove('hidden');
+
+        viewDivs = document.getElementsByClassName('view');
+        for (let div of viewDivs) {
+            div.classList.remove('visible');
+        }
+    }
+
     function startGame() {
-        var menu = document.getElementById('menu');
+        let menu = document.getElementById('menu');
         menu.classList.add('hidden');
         Game.startGame();
     }
+
     document.getElementById('startGame').addEventListener('click', startGame);
-    let buttons = document.getElementsByClassName('open-view');
-    for (let btn of buttons) {
+    let menuListElements = document.getElementsByClassName('open-view');
+    for (let btn of menuListElements) {
         let id = btn.dataset.id;
         btn.addEventListener('click', function () {
             openView(id);
         });
     }
-    document.getElementById('equipment').addEventListener('click', function () {
-        openView('equipment');
-    });
+    let backButtons = document.getElementsByClassName('back');
+    for (let btn of backButtons) {
+        btn.addEventListener('click', function () {
+            backToMenu();
+        });
+    }
 })();

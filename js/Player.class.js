@@ -13,6 +13,7 @@ class Player {
         this.y = canvas.height - this.height;
         this.lives = 30;
     }
+
     moveLeft() {
         if (this.allowMoveLeft) {
             let step = this.step;
@@ -24,6 +25,7 @@ class Player {
             }
         }
     }
+
     moveRight() {
         if (this.allowMoveRight) {
             let width = this.width;
@@ -39,6 +41,7 @@ class Player {
             }
         }
     }
+
     moveTo(pos) {
         if (pos.x) {
             this.x = pos.x;

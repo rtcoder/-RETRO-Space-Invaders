@@ -16,6 +16,7 @@ function getRandomInt(min, max) {
     }
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 function getRandomString(length) {
     if (!length) {
         length = 10;
@@ -35,7 +36,9 @@ function resize() {
 }
 
 window.addEventListener('resize', resize);
+
 function log() {
     console.log.apply(this, arguments);
 }
+
 resize();

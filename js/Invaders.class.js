@@ -7,12 +7,14 @@ class Invaders {
         this.isBombEnabled = false;
         this.loopMilisconds = 3;
     }
+
     startGame() {
         this.isPaused = false;
         this.isFinished = false;
         this.set();
         this.gameLoop = setInterval(this.loop, this.loopMilisconds);
     }
+
     set() {
         enemies.cols = levels[this.level].cols;
         enemies.rows = levels[this.level].rows;
@@ -29,6 +31,7 @@ class Invaders {
         document.getElementById('level').innerHTML = this.level + 1;
         enemies.generate();
     }
+
     finish(arg) {
         if (arg === 'fail') {
             this.level = 0;
@@ -37,6 +40,7 @@ class Invaders {
         }
         this.set();
     }
+
     delLives(val) {
         player.lives -= val;
         if (player.lives <= 0) {
@@ -44,12 +48,14 @@ class Invaders {
             this.finish("fail");
         }
     }
+
     addLives(val) {
         player.lives += val;
         if (player.lives > player.maxLives) {
             player.lives = player.maxLives;
         }
     }
+
     loop() {
         if (!Game.isPaused && !Game.isFinished && document.hasFocus()) {
             collisions.Missiles();

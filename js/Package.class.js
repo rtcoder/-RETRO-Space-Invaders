@@ -7,6 +7,7 @@ class Package {
         this.uid = getRandomString();
         this.color = extras.types[this.type].color;
     }
+
     set() {
         if (typeof extras.activeExtras[extras.types[this.type].name] === "undefined") {
             extras.activeExtras[extras.types[this.type].name] = {

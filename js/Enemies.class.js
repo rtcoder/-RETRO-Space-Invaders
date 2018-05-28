@@ -13,6 +13,7 @@ class Enemies {
         this.list = new Array();
         this.generate();
     }
+
     generate() {
         this.list = new Array();
         for (let i = 0; i < this.rows; i++) {
@@ -25,16 +26,18 @@ class Enemies {
             }
         }
     }
+
     move() {
         let e = this.list;
         for (let i in e) {
             e[i].x += this.moveBack ? -this.step : this.step;
         }
         if ((!this.moveBack && e[e.length - 1].x + this.width > canvas.width)
-                || (this.moveBack && e[0].x < 0)) {
+            || (this.moveBack && e[0].x < 0)) {
             this.moveBack = !this.moveBack;
         }
     }
+
     shoot() {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {
             let count = 0;
@@ -60,6 +63,7 @@ class Enemies {
             }
         }
     }
+
     countAlive() {
         let c = 0;
         for (let k in this.list) {

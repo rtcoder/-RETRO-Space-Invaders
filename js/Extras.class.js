@@ -45,6 +45,7 @@ class Extras {
             this.lastDropTime = new Date().getTime();
         }
     }
+
     countDown() {
         let ae = this.activeExtras;
         for (let i in ae) {

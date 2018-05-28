@@ -12,6 +12,7 @@ class Keys {
     }
 
 }
+
 document.onkeydown = function (e) {
     e = e || window.event;
     switch (e.keyCode) {

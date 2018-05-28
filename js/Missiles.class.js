@@ -7,6 +7,7 @@ class Missiles {
         this.playerMissiles = new Array();
         this.enemiesMissiles = new Array();
     }
+
     move() {
         let pb = this.playerMissiles;
         let eb = this.enemiesMissiles;

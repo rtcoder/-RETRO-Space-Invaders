@@ -2,6 +2,7 @@ class Draw {
     constructor() {
         this.backgroundColor = '#000';
     }
+
     player() {
         let width = player.width;
         if (typeof extras.activeExtras.largeShip !== 'undefined') {
@@ -15,6 +16,7 @@ class Draw {
         ctx.fill();
         ctx.stroke();
     }
+
     background() {
         ctx.beginPath();
         ctx.strokeStyle = 'transparent';
@@ -23,6 +25,7 @@ class Draw {
         ctx.fill();
         ctx.stroke();
     }
+
     enemies() {
         let e = enemies.list;
         for (let i in e) {
@@ -37,6 +40,7 @@ class Draw {
             }
         }
     }
+
     missiles() {
         let pb = missiles.playerMissiles;
         for (let i in pb) {
@@ -70,6 +74,7 @@ class Draw {
             ctx.stroke();
         }
     }
+
     packages() {
         let e = extras.list;
         for (let i in e) {
@@ -85,6 +90,7 @@ class Draw {
             ctx.stroke();
         }
     }
+
     explodes() {
         ctx.beginPath();
         let ex = missiles.explodes;
@@ -98,6 +104,7 @@ class Draw {
         ctx.fill();
         ctx.stroke();
     }
+
     All() {
         this.background();
         this.packages();
