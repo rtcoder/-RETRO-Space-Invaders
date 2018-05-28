@@ -25,6 +25,7 @@ body{
         width: 100%;
         height: calc(100% - 30px);
         float: left;
+        cursor: none;
     }
     #menu{
         width: 100vw;
@@ -45,6 +46,20 @@ body{
                     text-decoration: underline;
                 }
             }
+        }
+    }
+    .view{
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: #000;
+        flex-direction: column;
+        &.visible{
+            display: flex;
+        }
+        .back{
+            width: 50px;
         }
     }
 }

@@ -26,6 +26,7 @@ body canvas {
   width: 100%;
   height: calc(70%);
   float: left;
+  cursor: none;
 }
 body #menu {
   width: 100vw;
@@ -47,6 +48,20 @@ body #menu ul li {
 }
 body #menu ul li:hover {
   text-decoration: underline;
+}
+body .view {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: #000;
+  flex-direction: column;
+}
+body .view.visible {
+  display: flex;
+}
+body .view .back {
+  width: 50px;
 }
 .hidden {
   display: none !important;
