@@ -1,11 +1,11 @@
 body {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   background: #000;
-  font-family: 'C64 Pro Local';
+  font-family: 'C64 Pro Local', serif;
 }
 body #info {
   width: 100%;
@@ -24,7 +24,7 @@ body #info a:hover {
 }
 body canvas {
   width: 100%;
-  height: calc(70%);
+  height: calc(100% - 30px);
   float: left;
   cursor: none;
 }

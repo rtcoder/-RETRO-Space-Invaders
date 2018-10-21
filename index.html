@@ -1,76 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Invaders</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <div id="game">
-            <div id="info">
-                <span>
-                    <span>Level:&nbsp;</span>
-                    <span id="level"></span>
-                </span>
-                <span id="doubleShootContainer">|
-                    <span>double shoot:&nbsp;</span>
-                    <span id="doubleShoot"></span>
-                </span>
-                <span id="largeShipContainer">|
-                    <span>large ship:&nbsp;</span>
-                    <span id="largeShip"></span>
-                </span>
-                <span id="superSpeedContainer">|
-                    <span>super speed:&nbsp;</span>
-                    <span id="superSpeed"></span>
-                </span>
-                <span class="right">
-                    Designed & programmed by <a href="https://github.com/rtcoder">rtCoder</a>
-                </span>
-            </div>
+<head>
+    <title>Invaders</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="game">
+    <div id="info">
+        <span>
+            <span>Level:&nbsp;</span>
+            <span id="level"></span>
+        </span>
+        <span id="doubleShootContainer">|
+            <span>double shoot:&nbsp;</span>
+            <span id="doubleShoot"></span>
+        </span>
+        <span id="largeShipContainer">|
+            <span>large ship:&nbsp;</span>
+            <span id="largeShip"></span>
+        </span>
+        <span id="superSpeedContainer">|
+            <span>super speed:&nbsp;</span>
+            <span id="superSpeed"></span>
+        </span>
+        <span class="right">
+            Designed & programmed by <a href="https://github.com/rtcoder">rtCoder</a>
+        </span>
+    </div>
 
-            <canvas id="canvas"></canvas>
+    <canvas id="canvas"></canvas>
 
-            <div id="menu">
-                <ul>
-                    <li id="startGame">Play</li>
-                    <li class="open-view" data-id="controls">Controls</li>
-                    <li class="open-view" data-id="equipment">Equipment</li>
-                    <li>Credits</li>
-                </ul>
-            </div>
+    <div id="menu">
+        <ul>
+            <li id="startGame">Play</li>
+            <li class="open-view" data-id="controls">Controls</li>
+            <li class="open-view" data-id="equipment">Equipment</li>
+            <li>Credits</li>
+        </ul>
+    </div>
 
-            <div class="view" id="controls">
-                <button class="back"><-</button>
-                <ul>
-                    <li>Keyboard</li>
-                    <li>Mouse</li>
-                    <li>Gamepad</li>
-                </ul>
-            </div>
-            <div class="view" id="equipment">
-                <button class="back"><-</button>
+    <div class="view" id="controls">
+        <button class="back"><-</button>
+        <ul>
+            <li>Keyboard</li>
+            <li>Mouse</li>
+            <li>Gamepad</li>
+        </ul>
+    </div>
+    <div class="view" id="equipment">
+        <button class="back"><-</button>
 
-            </div>
-        </div>
-        <script>
-            var canvas = document.getElementById("canvas");
-            var ctx = canvas.getContext('2d');
-        </script>
-        <script src="js/levels.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="js/Controls.class.js"></script>
-        <script src="js/Mouse.class.js"></script>
-        <script src="js/Keys.class.js"></script>
-        <script src="js/Extras.class.js"></script>
-        <script src="js/Package.class.js"></script>
-        <script src="js/Enemies.class.js"></script>
-        <script src="js/Collisions.class.js"></script>
-        <script src="js/Draw.class.js"></script>
-        <script src="js/Missiles.class.js"></script>
-        <script src="js/Player.class.js"></script>
-        <script src="js/Invaders.class.js"></script>
-        <script src="js/script.js"></script>
-    </body>
+    </div>
+</div>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext('2d');
+</script>
+<script src="js/levels.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/Controls.class.js"></script>
+<script src="js/Mouse.class.js"></script>
+<script src="js/Keys.class.js"></script>
+<script src="js/Extras.class.js"></script>
+<script src="js/Package.class.js"></script>
+<script src="js/Enemies.class.js"></script>
+<script src="js/Collisions.class.js"></script>
+<script src="js/Draw.class.js"></script>
+<script src="js/Missiles.class.js"></script>
+<script src="js/Player.class.js"></script>
+<script src="js/Invaders.class.js"></script>
+<script src="js/script.js"></script>
+</body>
 </html>
