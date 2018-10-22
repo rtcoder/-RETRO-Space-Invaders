@@ -32,12 +32,11 @@ body {
     cursor: none;
   }
 
-  #menu {
+  #menu, #controls {
     width: 100vw;
     height: 100vh;
     position: absolute;
     background: #000;
-    display: flex;
 
     ul {
       align-self: center;
@@ -56,7 +55,9 @@ body {
       }
     }
   }
-
+  #menu {
+    display: flex;
+  }
   .view {
     display: none;
     width: 100vw;

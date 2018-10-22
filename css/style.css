@@ -28,26 +28,32 @@ body canvas {
   float: left;
   cursor: none;
 }
-body #menu {
+body #menu,
+body #controls {
   width: 100vw;
   height: 100vh;
   position: absolute;
   background: #000;
-  display: flex;
 }
-body #menu ul {
+body #menu ul,
+body #controls ul {
   align-self: center;
   width: 100vw;
   list-style: none;
   text-align: center;
 }
-body #menu ul li {
+body #menu ul li,
+body #controls ul li {
   color: #fff;
   cursor: pointer;
   font-size: 30px;
 }
-body #menu ul li:hover {
+body #menu ul li:hover,
+body #controls ul li:hover {
   text-decoration: underline;
+}
+body #menu {
+  display: flex;
 }
 body .view {
   display: none;

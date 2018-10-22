@@ -1,16 +1,16 @@
 const BULLET = 1;
 const BOMB = 2;
 
-var Game = new Invaders();
-var draw = new Draw();
-var enemies = new Enemies();
-var missiles = new Missiles();
-var player = new Player();
-var extras = new Extras();
-var keys = new Keys();
-var mouse = new Mouse();
-var controls = new Controls();
-var collisions = new Collisions();
+const Game = new Invaders();
+const draw = new Draw();
+const enemies = new Enemies();
+const missiles = new Missiles();
+const player = new Player();
+const extras = new Extras();
+const keys = new Keys();
+const mouse = new Mouse();
+const controls = new Controls();
+const collisions = new Collisions();
 (function () {
     function openView(view) {
         let menu = document.getElementById('menu');
@@ -36,6 +36,10 @@ var collisions = new Collisions();
         Game.startGame();
     }
 
+    const controlsBtns = document.getElementsByClassName('set-control-type');
+    for (let btn of controlsBtns) {
+        btn.addEventListener('click', () => controls.set(btn.dataset.type));
+    }
     document.getElementById('startGame').addEventListener('click', startGame);
     let menuListElements = document.getElementsByClassName('open-view');
     for (let btn of menuListElements) {

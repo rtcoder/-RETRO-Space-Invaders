@@ -10,12 +10,12 @@ class Enemies {
         this.moveBack = false;
         this.shootInterval = 1000;
         this.lastShootTime = null;
-        this.list = new Array();
+        this.list = [];
         this.generate();
     }
 
     generate() {
-        this.list = new Array();
+        this.list = [];
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.cols; j++) {
                 this.list.push({
@@ -35,6 +35,9 @@ class Enemies {
         if ((!this.moveBack && e[e.length - 1].x + this.width > canvas.width)
             || (this.moveBack && e[0].x < 0)) {
             this.moveBack = !this.moveBack;
+            for (let i in e) {
+                e[i].y += this.height / 2;
+            }
         }
     }
 
