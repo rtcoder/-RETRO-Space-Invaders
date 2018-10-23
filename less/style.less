@@ -55,6 +55,41 @@ body {
       }
     }
   }
+  #controls {
+    ul {
+      li {
+        position: relative;
+        .text {
+          position: relative;
+          span {
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            display: none;
+          }
+        }
+        &:not(.active) {
+          &:hover {
+            .text {
+              span {
+                display: inline-block;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+        &.active {
+          .text {
+            span {
+              top: 0;
+              left: -30px;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
   #menu {
     display: flex;
   }

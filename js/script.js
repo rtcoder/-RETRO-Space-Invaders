@@ -1,6 +1,7 @@
 const BULLET = 1;
 const BOMB = 2;
 
+const Database = new DB();
 const Game = new Invaders();
 const draw = new Draw();
 const enemies = new Enemies();
@@ -45,7 +46,16 @@ const viewDivs = document.getElementsByClassName('view');
     }
 
     for (const btn of controlsBtns) {
-        btn.addEventListener('click', () => controls.set(btn.dataset.type));
+        btn.addEventListener('click', () => {
+            for (const b of controlsBtns) {
+                b.classList.remove('active');
+            }
+            btn.classList.add('active');
+            controls.set(btn.dataset.type);
+        });
+        if(controls.hasOwnProperty(btn.dataset.type) && !!controls[btn.dataset.type]){
+            btn.click();
+        }
     }
     startGameBtn.addEventListener('click', startGame);
     resumeGameBtn.addEventListener('click', resumeGame);

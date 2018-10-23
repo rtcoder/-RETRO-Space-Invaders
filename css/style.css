@@ -52,6 +52,27 @@ body #menu ul li:hover,
 body #controls ul li:hover {
   text-decoration: underline;
 }
+body #controls ul li {
+  position: relative;
+}
+body #controls ul li .text {
+  position: relative;
+}
+body #controls ul li .text span {
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  display: none;
+}
+body #controls ul li:not(.active):hover .text span {
+  display: inline-block;
+  font-size: 10px;
+}
+body #controls ul li.active .text span {
+  top: 0;
+  left: -30px;
+  display: inline-block;
+}
 body #menu {
   display: flex;
 }

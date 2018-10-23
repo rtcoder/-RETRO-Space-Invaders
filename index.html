@@ -45,9 +45,21 @@
     <div class="view" id="controls">
         <button class="back"><-</button>
         <ul>
-            <li class="set-control-type" data-type="mouseControl">Mouse</li>
-            <li class="set-control-type" data-type="keysControl">Keyboard</li>
-            <li class="set-control-type" data-type="gamepadControl">Gamepad</li>
+            <li class="set-control-type" data-type="mouseControl">
+               <span class="text">
+                    <span>&check;</span> Mouse
+               </span>
+            </li>
+            <li class="set-control-type" data-type="keysControl">
+               <span class="text">
+                    <span>&check;</span> Keyboard
+               </span>
+            </li>
+            <li class="set-control-type" data-type="gamepadControl">
+               <span class="text">
+                    <span>&check;</span> Gamepad
+               </span>
+            </li>
         </ul>
     </div>
     <div class="view" id="garage">
@@ -59,6 +71,7 @@
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d');
 </script>
+<script src="js/DB.class.js"></script>
 <script src="js/levels.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/List.class.js"></script>
