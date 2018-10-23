@@ -31,18 +31,17 @@ class Collisions {
     }
 
     Missiles() {
-        let e = enemies.list;
-        let pb = missiles.playerMissiles;
-        for (let i in e) {
-            for (let j in pb) {
-                if (e.length > i && pb.length > j
-                    && pb[j].x + missiles.size >= e[i].x
-                    && pb[j].x <= e[i].x + enemies.width
-                    && pb[j].y + missiles.size >= e[i].y
-                    && pb[j].y <= e[i].y + enemies.height
-                    && !e[i].isKilled) {
+        const pb = missiles.playerMissiles;
+        for (const e of enemies.list) {
+            for (const j in pb) {
+                if (enemies.list.length > i && pb.length > j
+                    && pb[j].x + missiles.size >= e.x
+                    && pb[j].x <= e.x + enemies.width
+                    && pb[j].y + missiles.size >= e.y
+                    && pb[j].y <= e.y + enemies.height
+                    && !e.isKilled) {
                     if (pb[j].type === BULLET) {
-                        e[i].isKilled = true;
+                        e.isKilled = true;
                     } else if (pb[j].type === BOMB) {
                         missiles.explodes.add({
                             x: pb[j].x,
@@ -56,17 +55,13 @@ class Collisions {
             }
         }
 
-        let eb = missiles.enemiesMissiles;
-        let playerWidth = player.width;
-        if (typeof extras.activeExtras.largeShip !== 'undefined') {
-            playerWidth = player.largeWidth;
-        }
-        for (let j in eb) {
-            if (eb.length > j
-                && eb[j].x + missiles.size >= player.x
-                && eb[j].x <= player.x + playerWidth
-                && eb[j].y + missiles.size >= player.y
-                && eb[j].y <= player.y + player.height) {
+        const playerWidth = player.getSize().width;
+        for (const eb of missiles.enemiesMissiles) {
+            if (missiles.enemiesMissiles.length > j
+                && eb.x + missiles.size >= player.x
+                && eb.x <= player.x + playerWidth
+                && eb.y + missiles.size >= player.y
+                && eb.y <= player.y + player.height) {
                 Game.finish('fail');
             }
         }
