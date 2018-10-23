@@ -2,20 +2,34 @@ class Invaders {
     constructor() {
         this.isPaused = false;
         this.isFinished = false;
-        this.gameLoop = null;
         this.level = 0;
         this.isBombEnabled = false;
         this.loopMilisconds = 3;
+        this.gameLoop = null;
     }
 
     startGame() {
         this.isPaused = false;
         this.isFinished = false;
-        this.set();
-        this.gameLoop = setInterval(this.loop, this.loopMilisconds);
+        this.setGame();
+        this.gameLoop = setInterval(()=>this.loop(), this.loopMilisconds);
     }
 
-    set() {
+    pauseGame() {
+        this.isPaused = true;
+        resumeGameBtn.classList.remove('hidden');
+        menu.classList.remove('hidden');
+        clearInterval(this.gameLoop);
+    }
+
+    resumeGame() {
+        this.isPaused = false;
+        this.isFinished = false;
+        menu.classList.add('hidden');
+        this.gameLoop = setInterval(()=>this.loop(), this.loopMilisconds);
+    }
+
+    setGame() {
         enemies.cols = levels[this.level].cols;
         enemies.rows = levels[this.level].rows;
         enemies.shootInterval = levels[this.level].enemiesShootInterval;
@@ -35,29 +49,16 @@ class Invaders {
     finish(arg) {
         if (arg === 'fail') {
             this.level = 0;
+            resumeGameBtn.classList.add('hidden');
+            menu.classList.remove('hidden');
         } else if (arg === 'next') {
             this.level++;
         }
-        this.set();
-    }
-
-    delLives(val) {
-        player.lives -= val;
-        if (player.lives <= 0) {
-            player.lives = 0;
-            this.finish("fail");
-        }
-    }
-
-    addLives(val) {
-        player.lives += val;
-        if (player.lives > player.maxLives) {
-            player.lives = player.maxLives;
-        }
+        this.setGame();
     }
 
     loop() {
-        if (!Game.isPaused && !Game.isFinished && document.hasFocus()) {
+        if (!Game.isPaused && !this.isFinished && document.hasFocus()) {
             collisions.Missiles();
             collisions.Explodes();
             collisions.Packages();
@@ -79,9 +80,6 @@ class Invaders {
                 if (keys.ctrl) {
                     player.shoot(BULLET);
                 }
-                if (keys.KeyZ && Game.isBombEnabled) {
-                    player.shoot(BOMB);
-                }
             }
             if (controls.mouseControl) {
                 player.moveTo({x: mouse.xPos});
@@ -90,6 +88,14 @@ class Invaders {
                     player.shoot(BULLET);
                 }
                 if (mouse.right && Game.isBombEnabled) {
+                    player.shoot(BOMB);
+                }
+            }
+            if (controls.mouseControl || controls.keysControl) {
+                if (keys.Escape) {
+                    this.pauseGame();
+                }
+                if (keys.KeyZ && Game.isBombEnabled) {
                     player.shoot(BOMB);
                 }
             }

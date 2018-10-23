@@ -25,7 +25,7 @@ class Collisions {
             }
             ex[j].t--;
             if (ex[j].t <= 0) {
-                ex.remove(i);
+                ex.remove(j);
             }
         }
     }
@@ -50,7 +50,7 @@ class Collisions {
                             t: 10
                         });
                     }
-                    pb.remove(i);
+                    pb.remove(j);
                     enemies.countAlive();
                 }
             }
@@ -83,7 +83,7 @@ class Collisions {
                 && ex[j].y <= player.y + player.height) {
 
                 ex[j].set();
-                ex.remove(i);
+                ex.remove(j);
             }
         }
     }

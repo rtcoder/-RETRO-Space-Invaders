@@ -106,4 +106,19 @@ class Player {
             height: this.height
         };
     }
+
+    delLives(val) {
+        this.lives -= val;
+        if (this.lives <= 0) {
+            this.lives = 0;
+            this.finish("fail");
+        }
+    }
+
+    addLives(val) {
+        this.lives += val;
+        if (this.lives > this.maxLives) {
+            this.lives = this.maxLives;
+        }
+    }
 }
