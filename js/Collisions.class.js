@@ -74,10 +74,7 @@ class Collisions {
 
     Packages() {
         let ex = extras.list;
-        let playerWidth = player.width;
-        if (typeof extras.activeExtras.largeShip !== 'undefined') {
-            playerWidth = player.largeWidth;
-        }
+        let playerWidth = player.getSize().width;
         for (let j in ex) {
             if (ex.length > j
                 && ex[j].x + ex[j].size >= player.x

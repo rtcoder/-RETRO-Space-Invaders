@@ -99,4 +99,11 @@ class Player {
             this.lastShootTime = new Date().getTime();
         }
     }
+
+    getSize() {
+        return {
+            width: typeof extras.activeExtras.largeShip !== 'undefined' ? this.largeWidth : this.width,
+            height: this.height
+        };
+    }
 }

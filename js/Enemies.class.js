@@ -26,15 +26,14 @@ class Enemies {
     }
 
     move() {
-        let e = this.list;
-        for (const i in e) {
-            e[i].x += this.moveBack ? -this.step : this.step;
+        for (const enemy of this.list) {
+            enemy.x += this.moveBack ? -this.step : this.step;
         }
-        if ((!this.moveBack && e[e.length - 1].x + this.width > canvas.width)
-            || (this.moveBack && e[0].x < 0)) {
+        if ((!this.moveBack && this.list[this.list.length - 1].x + this.width > canvas.width)
+            || (this.moveBack && this.list[0].x < 0)) {
             this.moveBack = !this.moveBack;
-            for (const i in e) {
-                e[i].y += this.height / 2;
+            for (const enemy of this.list) {
+                enemy.y += this.height / 2;
             }
         }
     }

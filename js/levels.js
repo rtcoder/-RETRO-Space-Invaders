@@ -1,4 +1,4 @@
-var levels = [
+const levels = [
     {
         cols: 7,
         rows: 5,
