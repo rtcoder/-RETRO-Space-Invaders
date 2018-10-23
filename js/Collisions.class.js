@@ -25,7 +25,7 @@ class Collisions {
             }
             ex[j].t--;
             if (ex[j].t <= 0) {
-                ex.splice(j, 1);
+                ex.remove(i);
             }
         }
     }
@@ -44,13 +44,13 @@ class Collisions {
                     if (pb[j].type === BULLET) {
                         e[i].isKilled = true;
                     } else if (pb[j].type === BOMB) {
-                        missiles.explodes.push({
+                        missiles.explodes.add({
                             x: pb[j].x,
                             y: pb[j].y,
                             t: 10
                         });
                     }
-                    pb.splice(j, 1);
+                    pb.remove(i);
                     enemies.countAlive();
                 }
             }
@@ -83,7 +83,7 @@ class Collisions {
                 && ex[j].y <= player.y + player.height) {
 
                 ex[j].set();
-                ex.splice(j, 1);
+                ex.remove(i);
             }
         }
     }

@@ -21,4 +21,8 @@ class Package {
             }
         }
     }
+
+    moveDown(){
+
+    }
 }

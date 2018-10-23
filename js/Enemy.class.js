@@ -12,6 +12,10 @@ class Enemy {
             x: this.x + missiles.size / 2,
             y: this.y + missiles.size
         };
-        missiles.enemiesMissiles.push(arr);
+        missiles.enemiesMissiles.add(arr);
+    }
+
+    moveLeft(){
+
     }
 }

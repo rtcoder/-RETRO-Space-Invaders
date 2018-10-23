@@ -29,7 +29,7 @@ class Extras {
         for (let i in this.list) {
             el[i].y += this.step;
             if (el[i].y > canvas.height) {
-                el.splice(i, 1);
+                el.remove(i);
             }
         }
     }
@@ -39,7 +39,7 @@ class Extras {
             let x = getRandomInt(1, canvas.width);
             let y = getRandomInt(1, canvas.height / 3);
             let p = new Package(x, y);
-            this.list.push(p);
+            this.list.add(p);
             this.lastDropTime = new Date().getTime();
         }
     }

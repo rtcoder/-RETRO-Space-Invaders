@@ -20,7 +20,7 @@ class Enemies {
             for (let j = 0; j < this.cols; j++) {
                 const x = (this.width + this.space) * j;
                 const y = (this.height + this.space) * i;
-                this.list.push(new Enemy(x, y, 30, 30));
+                this.list.add(new Enemy(x, y, 30, 30));
             }
         }
     }

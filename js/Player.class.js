@@ -85,8 +85,8 @@ class Player {
                     type: type
                 };
 
-                missiles.playerMissiles.push(obj1);
-                missiles.playerMissiles.push(obj2);
+                missiles.playerMissiles.add(obj1);
+                missiles.playerMissiles.add(obj2);
             } else {
                 let obj = {
                     x: this.x + width / 2,
@@ -94,7 +94,7 @@ class Player {
                     type: type
                 };
 
-                missiles.playerMissiles.push(obj);
+                missiles.playerMissiles.add(obj);
             }
             this.lastShootTime = new Date().getTime();
         }

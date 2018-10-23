@@ -14,13 +14,13 @@ class Missiles {
         for (let i in pb) {
             pb[i].y -= this.step;
             if (pb[i].y < 0) {
-                pb.splice(i, 1);
+                pb.remove(i);
             }
         }
         for (let i in eb) {
             eb[i].y += this.step;
             if (eb[i].y > canvas.height) {
-                eb.splice(i, 1);
+                eb.remove(i);
             }
         }
     }
