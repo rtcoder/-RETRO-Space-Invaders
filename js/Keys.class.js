@@ -1,71 +1,43 @@
 class Keys {
     constructor() {
-        this.right = false;
-        this.left = false;
-        this.space = false;
-        this.ctrl = false;
-        this.shift = false;
-        this.C = false;
-        this.X = false;
-        this.Z = false;
+        this.ShiftLeft = false;
+        this.ShiftRight = false;
+        this.AltLeft = false;
+        this.AltRight = false;
+        this.ControlLeft = false;
+        this.ControlRight = false;
+        this.ArrowUp = false;
+        this.ArrowDown = false;
+        this.ArrowRight = false;
+        this.ArrowLeft = false;
+        this.Space = false;
+        this.KeyZ = false;
+        this.Escape = false;
+    }
 
+    get ctrl() {
+        return this.ControlLeft || this.ControlRight;
+    }
+
+    get alt() {
+        return this.AltLeft || this.AltRight;
+    }
+
+    get shift() {
+        return this.ShiftLeft || this.ShiftRight;
     }
 
 }
 
-document.onkeydown = function (e) {
+document.onkeydown = (e) => {
     e = e || window.event;
-    switch (e.keyCode) {
-        case 16:
-            keys.shift = true;
-            break;
-        case 17:
-            keys.ctrl = true;
-            break;
-        case 27:
-            Game.isPaused = !Game.isPaused;
-            break;
-        case 32:
-            keys.space = true;
-            break;
-        case 37:
-            keys.left = true;
-            break;
-        case 39:
-            keys.right = true;
-            break;
-        case 88:
-            keys.X = true;
-            break;
-        case 90:
-            keys.Z = true;
-            break;
+    if (keys.hasOwnProperty(e.code)) {
+        keys[e.code] = true;
     }
 };
-document.onkeyup = function (e) {
+document.onkeyup = (e) => {
     e = e || window.event;
-
-    switch (e.keyCode) {
-        case 16:
-            keys.shift = false;
-            break;
-        case 17:
-            keys.ctrl = false;
-            break;
-        case 32:
-            keys.space = false;
-            break;
-        case 37:
-            keys.left = false;
-            break;
-        case 39:
-            keys.right = false;
-            break;
-        case 88:
-            keys.X = false;
-            break;
-        case 90:
-            keys.Z = false;
-            break;
+    if (keys.hasOwnProperty(e.code)) {
+        keys[e.code] = false;
     }
 };

@@ -70,16 +70,16 @@ class Invaders {
             enemies.shoot();
 
             if (controls.keysControl) {
-                if (keys.left) {
+                if (keys.AltLeft) {
                     player.moveLeft();
                 }
-                if (keys.right) {
+                if (keys.AltRight) {
                     player.moveRight();
                 }
                 if (keys.ctrl) {
                     player.shoot(BULLET);
                 }
-                if (keys.Z && Game.isBombEnabled) {
+                if (keys.KeyZ && Game.isBombEnabled) {
                     player.shoot(BOMB);
                 }
             }
