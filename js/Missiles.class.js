@@ -2,10 +2,10 @@ class Missiles {
     constructor() {
         this.size = 5;
         this.step = 5;
-        this.explodes = new Array();
+        this.explodes = new List();
         this.explodeRadius = 50;
-        this.playerMissiles = new Array();
-        this.enemiesMissiles = new Array();
+        this.playerMissiles = new List();
+        this.enemiesMissiles = new List();
     }
 
     move() {

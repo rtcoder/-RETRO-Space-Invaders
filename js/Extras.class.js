@@ -17,16 +17,16 @@ class Extras {
                 color: 'yellow'
             }
         ];
-        this.activeExtras = [];
+        this.activeExtras = new List();
         this.interval = 1000;
-        this.list = [];
+        this.list = new List();
         this.lastDropTime = null;
         this.step = 1;
     }
 
     move() {
         let el = this.list;
-        for (let i in el) {
+        for (let i in this.list) {
             el[i].y += this.step;
             if (el[i].y > canvas.height) {
                 el.splice(i, 1);
@@ -36,8 +36,6 @@ class Extras {
 
     addPackage() {
         if (!this.lastDropTime || new Date().getTime() - this.lastDropTime > this.interval) {
-            let count = 0;
-            let c = 0;
             let x = getRandomInt(1, canvas.width);
             let y = getRandomInt(1, canvas.height / 3);
             let p = new Package(x, y);
