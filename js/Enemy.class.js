@@ -8,7 +8,7 @@ class Enemy {
     }
 
     shoot() {
-        let arr = {
+        const arr = {
             x: this.x + missiles.size / 2,
             y: this.y + missiles.size
         };

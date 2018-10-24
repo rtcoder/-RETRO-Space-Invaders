@@ -12,6 +12,7 @@ class Player {
         this.x = 0;
         this.y = canvas.height - this.height;
         this.lives = 30;
+        this.maxLives = 30;
     }
 
     moveLeft() {
@@ -28,10 +29,7 @@ class Player {
 
     moveRight() {
         if (this.allowMoveRight) {
-            let width = this.width;
-            if (typeof extras.activeExtras.largeShip !== 'undefined') {
-                width = this.largeWidth;
-            }
+            const width = this.getSize().width;
             let step = this.step;
             if (typeof extras.activeExtras.superSpeed !== 'undefined') {
                 step *= 2;
@@ -55,10 +53,7 @@ class Player {
         if (this.y < this.height) {
             this.y = this.height;
         }
-        let width = this.width;
-        if (typeof extras.activeExtras.largeShip !== 'undefined') {
-            width = this.largeWidth;
-        }
+        const width = this.getSize().width;
         if (this.x > canvas.width - width) {
             this.x = canvas.width - width;
         }
@@ -69,17 +64,14 @@ class Player {
 
     shoot(type) {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {
-            let width = this.width;
-            if (typeof extras.activeExtras.largeShip !== 'undefined') {
-                width = this.largeWidth;
-            }
+            const width = this.getSize().width;
             if (typeof extras.activeExtras.doubleShoot !== 'undefined') {
-                let obj1 = {
+                const obj1 = {
                     x: this.x,
                     y: this.y - this.height,
                     type: type
                 };
-                let obj2 = {
+                const obj2 = {
                     x: this.x + width,
                     y: this.y - this.height,
                     type: type
@@ -88,7 +80,7 @@ class Player {
                 missiles.playerMissiles.add(obj1);
                 missiles.playerMissiles.add(obj2);
             } else {
-                let obj = {
+                const obj = {
                     x: this.x + width / 2,
                     y: this.y - this.height,
                     type: type
@@ -111,7 +103,7 @@ class Player {
         this.lives -= val;
         if (this.lives <= 0) {
             this.lives = 0;
-            this.finish("fail");
+            Game.finish("fail");
         }
     }
 

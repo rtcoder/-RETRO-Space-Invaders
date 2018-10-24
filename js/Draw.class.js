@@ -40,8 +40,8 @@ class Draw {
     missiles() {
         for (const playerMissile of missiles.playerMissiles) {
             ctx.beginPath();
-            let x = playerMissile.x;
-            let y = playerMissile.y;
+            const x = playerMissile.x;
+            const y = playerMissile.y;
             let size = missiles.size;
             ctx.moveTo(x, y);
             ctx.strokeStyle = 'transparent';
@@ -59,8 +59,8 @@ class Draw {
 
         for (const enemyMissile of missiles.enemiesMissiles) {
             ctx.beginPath();
-            let x = enemyMissile.x;
-            let y = enemyMissile.y;
+            const x = enemyMissile.x;
+            const y = enemyMissile.y;
             ctx.moveTo(x, y);
             ctx.arc(x, y, missiles.size / 2, 0, 2 * Math.PI, false);
             ctx.fillStyle = '#fff';
@@ -73,8 +73,8 @@ class Draw {
     packages() {
         for (const extra of extras.list) {
             ctx.beginPath();
-            let x = extra.x;
-            let y = extra.y;
+            const x = extra.x;
+            const y = extra.y;
             ctx.moveTo(x, y);
             ctx.arc(x, y, extra.size / 2, 0, 2 * Math.PI, false);
             ctx.strokeStyle = "#fff";

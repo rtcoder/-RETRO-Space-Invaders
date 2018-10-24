@@ -12,7 +12,7 @@ class Invaders {
         this.isPaused = false;
         this.isFinished = false;
         this.setGame();
-        this.gameLoop = setInterval(()=>this.loop(), this.loopMilisconds);
+        this.gameLoop = setInterval(() => this.loop(), this.loopMilisconds);
     }
 
     pauseGame() {
@@ -26,7 +26,7 @@ class Invaders {
         this.isPaused = false;
         this.isFinished = false;
         menu.classList.add('hidden');
-        this.gameLoop = setInterval(()=>this.loop(), this.loopMilisconds);
+        this.gameLoop = setInterval(() => this.loop(), this.loopMilisconds);
     }
 
     setGame() {
@@ -37,8 +37,8 @@ class Invaders {
         player.shootInterval = levels[this.level].playerShootInterval;
         extras.list = new List();
         extras.activeExtras = new List();
-        for (let i in extras.types) {
-            document.getElementById(extras.types[i].name + 'Container').style = 'display:none';
+        for (const type of extras.types) {
+            document.getElementById(type.name + 'Container').style = 'display: none';
         }
 
         this.isBombEnabled = levels[this.level].isBombEnabled;
@@ -51,6 +51,7 @@ class Invaders {
             this.level = 0;
             resumeGameBtn.classList.add('hidden');
             menu.classList.remove('hidden');
+            clearInterval(this.gameLoop);
         } else if (arg === 'next') {
             this.level++;
         }

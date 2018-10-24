@@ -1,16 +1,16 @@
 class Collisions {
     Explodes() {
-        let e = enemies.list;
-        let ex = missiles.explodes;
-        for (let j in ex) {
-            for (let i in e) {
-                let r = {
+        const e = enemies.list;
+        const ex = missiles.explodes;
+        for (const j in ex) {
+            for (const i in e) {
+                const r = {
                     x: e[i].x,
                     y: e[i].y,
                     w: enemies.width,
                     h: enemies.height
                 };
-                let c = {
+                const c = {
                     x: ex[j].x,
                     y: ex[j].y,
                     r: missiles.explodeRadius
@@ -31,17 +31,18 @@ class Collisions {
     }
 
     Missiles() {
+        const e = enemies.list;
         const pb = missiles.playerMissiles;
-        for (const e of enemies.list) {
+        for (const i in e) {
             for (const j in pb) {
                 if (enemies.list.length > i && pb.length > j
-                    && pb[j].x + missiles.size >= e.x
-                    && pb[j].x <= e.x + enemies.width
-                    && pb[j].y + missiles.size >= e.y
-                    && pb[j].y <= e.y + enemies.height
-                    && !e.isKilled) {
+                    && pb[j].x + missiles.size >= e[i].x
+                    && pb[j].x <= e[i].x + enemies.width
+                    && pb[j].y + missiles.size >= e[i].y
+                    && pb[j].y <= e[i].y + enemies.height
+                    && !e[i].isKilled) {
                     if (pb[j].type === BULLET) {
-                        e.isKilled = true;
+                        e[i].isKilled = true;
                     } else if (pb[j].type === BOMB) {
                         missiles.explodes.add({
                             x: pb[j].x,
@@ -55,22 +56,23 @@ class Collisions {
             }
         }
 
+        const eb = missiles.enemiesMissiles;
         const playerWidth = player.getSize().width;
-        for (const eb of missiles.enemiesMissiles) {
+        for (const j in missiles.enemiesMissiles) {
             if (missiles.enemiesMissiles.length > j
-                && eb.x + missiles.size >= player.x
-                && eb.x <= player.x + playerWidth
-                && eb.y + missiles.size >= player.y
-                && eb.y <= player.y + player.height) {
+                && eb[j].x + missiles.size >= player.x
+                && eb[j].x <= player.x + playerWidth
+                && eb[j].y + missiles.size >= player.y
+                && eb[j].y <= player.y + player.height) {
                 Game.finish('fail');
             }
         }
     }
 
     Packages() {
-        let ex = extras.list;
-        let playerWidth = player.getSize().width;
-        for (let j in ex) {
+        const ex = extras.list;
+        const playerWidth = player.getSize().width;
+        for (const j in ex) {
             if (ex.length > j
                 && ex[j].x + ex[j].size >= player.x
                 && ex[j].x <= player.x + playerWidth
@@ -88,8 +90,8 @@ class Collisions {
     }
 
     RectCircleColliding(circle, rect) {
-        let distX = Math.abs(circle.x - rect.x - rect.w / 2);
-        let distY = Math.abs(circle.y - rect.y - rect.h / 2);
+        const distX = Math.abs(circle.x - rect.x - rect.w / 2);
+        const distY = Math.abs(circle.y - rect.y - rect.h / 2);
 
         if (distX > (rect.w / 2 + circle.r)) {
             return false;
@@ -105,8 +107,8 @@ class Collisions {
             return true;
         }
 
-        let dx = distX - rect.w / 2;
-        let dy = distY - rect.h / 2;
+        const dx = distX - rect.w / 2;
+        const dy = distY - rect.h / 2;
         return (dx * dx + dy * dy <= (circle.r * circle.r));
     }
 }

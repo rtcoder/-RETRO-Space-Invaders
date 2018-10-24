@@ -12,87 +12,86 @@ class Mouse {
     }
 
     setEvents() {
-        let $this = this;
-        (function () {
-            window.addEventListener('mousedown', function (e) {
-                $this.onMousedown(e, $this);
+        (() => {
+            window.addEventListener('mousedown', e => {
+                this.onMousedown(e);
             });
-            window.addEventListener('mouseup', function (e) {
-                $this.onMouseup(e, $this);
+            window.addEventListener('mouseup', e => {
+                this.onMouseup(e);
             });
-            window.addEventListener('mousemove', function (e) {
-                $this.onMousemove(e, $this);
+            window.addEventListener('mousemove', e => {
+                this.onMousemove(e);
             });
-            ['scroll', 'mousewheel', 'DOMMouseScroll'].map(function (e) {
-                window.addEventListener(e, function (event) {
-                    $this.onScroll(event, $this);
+            ['scroll', 'mousewheel', 'DOMMouseScroll'].map(e => {
+                window.addEventListener(e, event => {
+                    this.onScroll(event);
                 });
             });
 
-            window.addEventListener('contextmenu', function (e) {
+            window.addEventListener('contextmenu', e => {
                 e.preventDefault();
             })
         })();
     }
 
-    onScroll(e, self) {
+    onScroll(e) {
         e = e || window.event;
         if (e.wheelDelta / 120 > 0) {
-            self.scrollUp = true;
+            this.scrollUp = true;
         } else {
-            self.scrollDown = true;
+            this.scrollDown = true;
         }
 
         if (timer !== null) {
             clearTimeout(timer);
         }
-        timer = setTimeout(function () {
-            self.scrollDown = false;
-            self.scrollUp = false;
+        timer = setTimeout(() => {
+            this.scrollDown = false;
+            this.scrollUp = false;
         }, 150);
     }
 
-    onMousemove(e, self) {
+    onMousemove(e) {
         e = e || window.event;
-        self.xPos = e.pageX;
-        self.yPos = e.pageY;
+        this.xPos = e.pageX;
+        this.yPos = e.pageY;
     }
 
-    onMouse(e, self, valueToSet) {
+    onMouse(e, valueToSet) {
         e = e || window.event;
         if ("buttons" in e) {
             if (e.buttons === 1) {
-                self.left = valueToSet;
+                this.left = valueToSet;
             }
             if (e.buttons === 2) {
-                self.right = valueToSet;
+                this.right = valueToSet;
             }
             if (e.buttons === 4) {
-                self.wheelClick = valueToSet;
+                this.wheelClick = valueToSet;
             }
         }
-        let button = e.which || e.button;
+        const button = e.which || e.button;
         if (button === 1) {
-            self.left = valueToSet;
+            this.left = valueToSet;
         }
         if (button === 2) {
-            self.right = valueToSet;
+            this.right = valueToSet;
         }
         if (button === 4) {
-            self.wheelClick = valueToSet;
+            this.wheelClick = valueToSet;
         }
     }
 
-    onMouseup(e, self) {
-        self.onMouse(e, self, false);
+    onMouseup(e) {
+        this.onMouse(e, false);
 
         if (e.buttons === 0) {
-            self.right = false;
+            this.right = false;
         }
     }
 
-    onMousedown(e, self) {
-        self.onMouse(e, self, true);
+    onMousedown(e) {
+        this.onMouse(e, true);
     }
 }
 

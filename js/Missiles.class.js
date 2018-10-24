@@ -9,15 +9,15 @@ class Missiles {
     }
 
     move() {
-        let pb = this.playerMissiles;
-        let eb = this.enemiesMissiles;
-        for (let i in pb) {
+        const pb = this.playerMissiles;
+        const eb = this.enemiesMissiles;
+        for (const i in pb) {
             pb[i].y -= this.step;
             if (pb[i].y < 0) {
                 pb.remove(i);
             }
         }
-        for (let i in eb) {
+        for (const i in eb) {
             eb[i].y += this.step;
             if (eb[i].y > canvas.height) {
                 eb.remove(i);

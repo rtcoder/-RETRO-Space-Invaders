@@ -29,13 +29,13 @@ class Keys {
 
 }
 
-document.onkeydown = (e) => {
+document.onkeydown = e => {
     e = e || window.event;
     if (keys.hasOwnProperty(e.code)) {
         keys[e.code] = true;
     }
 };
-document.onkeyup = (e) => {
+document.onkeyup = e => {
     e = e || window.event;
     if (keys.hasOwnProperty(e.code)) {
         keys[e.code] = false;

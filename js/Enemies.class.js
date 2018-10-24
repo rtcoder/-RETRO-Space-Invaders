@@ -40,14 +40,14 @@ class Enemies {
 
     shoot() {
         if (new Date().getTime() - this.lastShootTime > this.shootInterval || !this.lastShootTime) {
-            let count = this.list.filter(e => e.isKilled === false).length;
+            const count = this.list.filter(e => e.isKilled === false).length;
             let c = 0;
-            let random = getRandomInt(1, count);
-            for (let i in this.list) {
-                if (!this.list[i].isKilled) {
+            const random = getRandomInt(1, count);
+            for (const enemy of this.list) {
+                if (!enemy.isKilled) {
                     c++;
                     if (c === random) {
-                        this.list[i].shoot();
+                        enemy.shoot();
                         this.lastShootTime = new Date().getTime();
                     }
                 }
