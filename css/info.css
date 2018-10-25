@@ -1,0 +1,16 @@
+#info {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  color: #fff;
+}
+#info a {
+  color: #eee;
+  border-bottom: dotted #eee 1px;
+  text-decoration: none;
+}
+#info a:hover {
+  border-bottom-style: solid;
+}
+/*# sourceMappingURL=info.css.map */

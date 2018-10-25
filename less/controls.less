@@ -1,0 +1,54 @@
+#controls {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: #000;
+
+  ul {
+    align-self: center;
+    width: 100vw;
+    list-style: none;
+    text-align: center;
+
+    li {
+      color: #fff;
+      cursor: pointer;
+      font-size: 30px;
+      position: relative;
+      height: 45px;
+      line-height: 45px;
+
+      &:not(.active) {
+        &:hover {
+          .text {
+            span {
+              display: inline-block;
+              font-size: 10px;
+            }
+          }
+        }
+      }
+
+      &.active {
+        .text {
+          span {
+            top: 0;
+            left: -30px;
+            display: inline-block;
+          }
+        }
+      }
+
+      .text {
+        position: relative;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: -20px;
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+#controls {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background: #000;
+}
+#controls ul {
+  align-self: center;
+  width: 100vw;
+  list-style: none;
+  text-align: center;
+}
+#controls ul li {
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+  position: relative;
+}
+#controls ul li:hover {
+  text-decoration: underline;
+}
+#controls ul li:not(.active):hover .text span {
+  display: inline-block;
+  font-size: 10px;
+}
+#controls ul li.active .text span {
+  top: 0;
+  left: -30px;
+  display: inline-block;
+}
+#controls ul li .text {
+  position: relative;
+}
+#controls ul li .text span {
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  display: none;
+}
+/*# sourceMappingURL=controls.css.map */
