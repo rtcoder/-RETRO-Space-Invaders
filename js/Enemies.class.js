@@ -1,4 +1,9 @@
-class Enemies {
+import Enemy from './Enemy.class.js';
+import List from './List.class.js';
+import {getRandomInt} from "./custom.js";
+import {Game} from "./script.js";
+
+export class Enemies {
     constructor() {
         this.width = 30;
         this.height = 30;
@@ -61,3 +66,5 @@ class Enemies {
         }
     }
 }
+
+export const enemies = new Enemies();

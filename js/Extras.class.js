@@ -1,19 +1,24 @@
-class Extras {
+import Package from "./Package.class.js";
+import {getRandomInt} from "./custom.js";
+import List from "./List.class.js";
+import {Game} from './script.js'
+
+export class Extras {
     constructor() {
         this.types = [
             {
                 name: 'doubleShoot',
-                remaningTime: 10000,
+                remainingTime: 10000,
                 color: 'yellow'
             },
             {
                 name: 'largeShip',
-                remaningTime: 15000,
+                remainingTime: 15000,
                 color: 'red'
             },
             {
                 name: 'superSpeed',
-                remaningTime: 10000,
+                remainingTime: 10000,
                 color: 'yellow'
             }
         ];
@@ -47,14 +52,16 @@ class Extras {
     countDown() {
         const ae = this.activeExtras;
         for (const i in ae) {
-            if (ae[i].remaningTime <= 0) {
+            if (ae[i].remainingTime <= 0) {
                 delete ae[i];
                 document.getElementById(i + 'Container').style = 'display:none';
             } else {
-                ae[i].remaningTime -= Game.loopMilisconds;
-                document.getElementById(i).innerHTML = Math.floor(ae[i].remaningTime / 1000) + 's';
+                ae[i].remainingTime -= Game.loopMilisconds;
+                document.getElementById(i).innerHTML = Math.floor(ae[i].remainingTime / 1000) + 's';
                 document.getElementById(i + 'Container').style = 'display:inline';
             }
         }
     }
 }
+
+export const extras = new Extras();

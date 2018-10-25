@@ -1,4 +1,6 @@
-class Controls {
+import {Database} from "./DB.class.js";
+
+export class Controls {
     constructor() {
         this.mouseControl = false;
         this.keysControl = false;
@@ -21,3 +23,5 @@ class Controls {
         }
     }
 }
+
+export const controls = new Controls();

@@ -1,4 +1,4 @@
-const levels = [
+export const levels = [
     {
         cols: 7,
         rows: 5,

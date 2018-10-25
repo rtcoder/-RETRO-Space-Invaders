@@ -1,4 +1,6 @@
-class Keys {
+import {keys} from "./script.js";
+
+export class Keys {
     constructor() {
         this.ShiftLeft = false;
         this.ShiftRight = false;
@@ -30,14 +32,14 @@ class Keys {
 }
 
 document.onkeydown = e => {
-    e = e || window.event;
-    if (keys.hasOwnProperty(e.code)) {
-        keys[e.code] = true;
+    const event = e || window.event;
+    if (keys.hasOwnProperty(event.code)) {
+        keys[event.code] = true;
     }
 };
 document.onkeyup = e => {
-    e = e || window.event;
-    if (keys.hasOwnProperty(e.code)) {
-        keys[e.code] = false;
+    const event = e || window.event;
+    if (keys.hasOwnProperty(event.code)) {
+        keys[event.code] = false;
     }
 };

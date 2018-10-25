@@ -1,4 +1,6 @@
-class Missiles {
+import List from "./List.class.js";
+
+export class Missiles {
     constructor() {
         this.size = 5;
         this.step = 5;
@@ -25,3 +27,4 @@ class Missiles {
         }
     }
 }
+export const missiles = new Missiles();

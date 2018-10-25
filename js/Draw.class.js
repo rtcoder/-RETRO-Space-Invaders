@@ -1,4 +1,11 @@
-class Draw {
+import {player} from "./Player.class.js";
+import {missiles} from "./Missiles.class.js";
+import {enemies} from "./Enemies.class.js";
+import {extras} from "./Extras.class.js";
+import {BOMB, BULLET} from "./script.js";
+
+
+export class Draw {
     constructor() {
         this.backgroundColor = '#000';
     }
@@ -107,3 +114,5 @@ class Draw {
         this.player();
     }
 }
+
+export const draw = new Draw();

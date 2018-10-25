@@ -1,4 +1,6 @@
-class Enemy {
+import {missiles} from "./Missiles.class.js";
+
+export default class Enemy {
     constructor(x, y, width, height) {
         this.x = x;
         this.y = y;
@@ -15,7 +17,7 @@ class Enemy {
         missiles.enemiesMissiles.add(arr);
     }
 
-    moveLeft(){
+    moveLeft() {
 
     }
 }

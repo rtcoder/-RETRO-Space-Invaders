@@ -1,4 +1,10 @@
-class Collisions {
+import {enemies} from "./Enemies.class.js";
+import {missiles} from "./Missiles.class.js";
+import {player} from "./Player.class.js";
+import {BOMB, BULLET, Game} from "./script.js";
+import {extras} from "./Extras.class.js";
+
+export class CollisionsClass {
     Explodes() {
         const e = enemies.list;
         const ex = missiles.explodes;
@@ -112,3 +118,4 @@ class Collisions {
         return (dx * dx + dy * dy <= (circle.r * circle.r));
     }
 }
+export const collisions = new CollisionsClass();

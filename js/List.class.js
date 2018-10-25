@@ -1,4 +1,4 @@
-class List extends Array {
+export default class List extends Array {
     constructor(...args) {
         super(...args);
     }

@@ -1,4 +1,7 @@
-class Player {
+import {extras} from "./Extras.class.js";
+import {missiles} from "./Missiles.class.js";
+
+ class Player {
     constructor() {
         this.allowMoveLeft = true;
         this.allowMoveRight = true;
@@ -114,3 +117,4 @@ class Player {
         }
     }
 }
+export const player = new Player();

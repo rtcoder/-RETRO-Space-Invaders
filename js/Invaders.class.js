@@ -1,4 +1,16 @@
-class Invaders {
+import {draw} from "./Draw.class.js";
+import {BOMB, BULLET, Game, keys, resumeGameBtn, menu} from "./script.js";
+import {player} from "./Player.class.js";
+import {enemies} from "./Enemies.class.js";
+import {extras} from "./Extras.class.js";
+import {collisions} from "./Collisions.class.js";
+import {missiles} from "./Missiles.class.js";
+import {levels} from "./levels.js";
+import List from "./List.class.js";
+import {controls} from "./Controls.class.js";
+import {mouse} from "./Mouse.class.js";
+
+export default class Invaders {
     constructor() {
         this.isPaused = false;
         this.isFinished = false;
@@ -72,10 +84,10 @@ class Invaders {
             enemies.shoot();
 
             if (controls.keysControl) {
-                if (keys.AltLeft) {
+                if (keys.ArrowLeft) {
                     player.moveLeft();
                 }
-                if (keys.AltRight) {
+                if (keys.ArrowRight) {
                     player.moveRight();
                 }
                 if (keys.ctrl) {

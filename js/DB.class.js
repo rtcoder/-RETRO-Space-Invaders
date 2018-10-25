@@ -4,7 +4,7 @@ const EMPTY_DB = {
     ship: {}
 };
 
-class DB {
+export class DB {
     constructor() {
         this._storage = localStorage.getItem('invadersData') || JSON.stringify(EMPTY_DB);
         localStorage.setItem('invadersData', this._storage);
@@ -32,3 +32,5 @@ class DB {
         return storage.hasOwnProperty(key) ? storage[key] : null;
     }
 }
+
+export const Database = new DB();

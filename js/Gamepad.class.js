@@ -1,4 +1,4 @@
-class Gamepad {
+export class Gamepad {
     constructor() {
         this.right = false;
         this.left = false;
@@ -21,3 +21,5 @@ class Gamepad {
         })();
     }
 }
+
+export const gamepad = new Gamepad();

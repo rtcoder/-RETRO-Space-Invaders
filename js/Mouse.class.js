@@ -1,4 +1,4 @@
-class Mouse {
+export class Mouse {
     constructor() {
         this.right = false;
         this.left = false;
@@ -30,13 +30,13 @@ class Mouse {
 
             window.addEventListener('contextmenu', e => {
                 e.preventDefault();
-            })
+            });
         })();
     }
 
     onScroll(e) {
-        e = e || window.event;
-        if (e.wheelDelta / 120 > 0) {
+        const event = e || window.event;
+        if (event.wheelDelta / 120 > 0) {
             this.scrollUp = true;
         } else {
             this.scrollDown = true;
@@ -52,25 +52,25 @@ class Mouse {
     }
 
     onMousemove(e) {
-        e = e || window.event;
-        this.xPos = e.pageX;
-        this.yPos = e.pageY;
+        const event = e || window.event;
+        this.xPos = event.pageX;
+        this.yPos = event.pageY;
     }
 
     onMouse(e, valueToSet) {
-        e = e || window.event;
-        if ("buttons" in e) {
-            if (e.buttons === 1) {
+        const event = e || window.event;
+        if ("buttons" in event) {
+            if (event.buttons === 1) {
                 this.left = valueToSet;
             }
-            if (e.buttons === 2) {
+            if (event.buttons === 2) {
                 this.right = valueToSet;
             }
-            if (e.buttons === 4) {
+            if (event.buttons === 4) {
                 this.wheelClick = valueToSet;
             }
         }
-        const button = e.which || e.button;
+        const button = event.which || event.button;
         if (button === 1) {
             this.left = valueToSet;
         }
@@ -83,16 +83,19 @@ class Mouse {
     }
 
     onMouseup(e) {
-        this.onMouse(e, false);
+        const event = e || window.event;
+        this.onMouse(event, false);
 
-        if (e.buttons === 0) {
+        if (event.buttons === 0) {
             this.right = false;
         }
     }
 
     onMousedown(e) {
-        this.onMouse(e, true);
+        const event = e || window.event;
+        this.onMouse(event, true);
     }
 }
 
 let timer = null;
+export const mouse = new Mouse();

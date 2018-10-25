@@ -7,7 +7,7 @@ Object.size = obj => {
     return size;
 };
 
-const getRandomInt = (min, max) => {
+export const getRandomInt = (min, max) => {
     if (!min) {
         min = 1;
     }
@@ -17,7 +17,7 @@ const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const getRandomString = length => {
+export const getRandomString = length => {
     if (!length) {
         length = 10;
     }
@@ -30,14 +30,14 @@ const getRandomString = length => {
     return text;
 };
 
-const resize = () => {
+export const resize = () => {
     canvas.setAttribute('width', window.innerWidth);
     canvas.setAttribute('height', window.innerHeight - document.getElementById('info').offsetHeight);
 };
 
 window.addEventListener('resize', resize);
 
-const log = () => {
+export const log = () => {
     console.log.apply(this, arguments);
 };
 
