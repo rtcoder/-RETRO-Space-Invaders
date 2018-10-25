@@ -47,8 +47,12 @@ export default class Invaders {
         enemies.shootInterval = levels[this.level].enemiesShootInterval;
         enemies.color = levels[this.level].enemiesColor;
         player.shootInterval = levels[this.level].playerShootInterval;
+
         extras.list = new List();
+        missiles.enemiesMissiles = new List();
+        missiles.playerMissiles = new List();
         extras.activeExtras = new List();
+
         for (const type of extras.types) {
             document.getElementById(type.name + 'Container').style = 'display: none';
         }

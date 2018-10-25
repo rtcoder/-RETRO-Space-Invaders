@@ -30,13 +30,12 @@ export class Extras {
     }
 
     move() {
-        const el = this.list;
-        for (const i in this.list) {
-            el[i].y += this.step;
-            if (el[i].y > canvas.height) {
-                el.remove(i);
+        this.list.forEach((el, i) => {
+            el.y += this.step;
+            if (el.y > canvas.height) {
+                this.list.remove(i);
             }
-        }
+        });
     }
 
     addPackage() {
@@ -50,17 +49,16 @@ export class Extras {
     }
 
     countDown() {
-        const ae = this.activeExtras;
-        for (const i in ae) {
-            if (ae[i].remainingTime <= 0) {
-                delete ae[i];
-                document.getElementById(i + 'Container').style = 'display:none';
+        this.activeExtras.forEach((ae, i) => {
+            if (ae.remainingTime <= 0) {
+                delete this.activeExtras[i];
+                document.getElementById(i + 'Container').style.display = 'none';
             } else {
-                ae[i].remainingTime -= Game.loopMilisconds;
-                document.getElementById(i).innerHTML = Math.floor(ae[i].remainingTime / 1000) + 's';
-                document.getElementById(i + 'Container').style = 'display:inline';
+                ae.remainingTime -= Game.loopMilisconds;
+                document.getElementById(i).innerHTML = Math.floor(ae.remainingTime / 1000) + 's';
+                document.getElementById(i + 'Container').style.display = 'inline';
             }
-        }
+        });
     }
 }
 

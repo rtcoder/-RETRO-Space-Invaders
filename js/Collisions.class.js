@@ -6,89 +6,83 @@ import {extras} from "./Extras.class.js";
 
 export class CollisionsClass {
     Explodes() {
-        const e = enemies.list;
-        const ex = missiles.explodes;
-        for (const j in ex) {
-            for (const i in e) {
+        missiles.explodes.forEach((ex, j) => {
+            enemies.list.forEach((e, i) => {
                 const r = {
-                    x: e[i].x,
-                    y: e[i].y,
+                    x: e.x,
+                    y: e.y,
                     w: enemies.width,
                     h: enemies.height
                 };
                 const c = {
-                    x: ex[j].x,
-                    y: ex[j].y,
+                    x: ex.x,
+                    y: ex.y,
                     r: missiles.explodeRadius
                 };
-                if (e.length > i && ex.length > j
+                if (enemies.list.length > i && ex.length > j
                     && this.RectCircleColliding(c, r)
-                    && !e[i].isKilled) {
+                    && !e.isKilled) {
 
-                    e[i].isKilled = true;
+                    e.isKilled = true;
                     enemies.countAlive();
                 }
-            }
-            ex[j].t--;
-            if (ex[j].t <= 0) {
+            });
+            ex.t--;
+            if (ex.t <= 0) {
                 ex.remove(j);
             }
-        }
+        });
     }
 
     Missiles() {
-        const e = enemies.list;
-        const pb = missiles.playerMissiles;
-        for (const i in e) {
-            for (const j in pb) {
-                if (enemies.list.length > i && pb.length > j
-                    && pb[j].x + missiles.size >= e[i].x
-                    && pb[j].x <= e[i].x + enemies.width
-                    && pb[j].y + missiles.size >= e[i].y
-                    && pb[j].y <= e[i].y + enemies.height
-                    && !e[i].isKilled) {
-                    if (pb[j].type === BULLET) {
-                        e[i].isKilled = true;
-                    } else if (pb[j].type === BOMB) {
+        enemies.list.forEach((e, i) => {
+            missiles.playerMissiles.forEach((pb, j) => {
+                if (enemies.list.length > i && missiles.playerMissiles.length > j
+                    && pb.x + missiles.size >= e.x
+                    && pb.x <= e.x + enemies.width
+                    && pb.y + missiles.size >= e.y
+                    && pb.y <= e.y + enemies.height
+                    && !e.isKilled) {
+                    if (pb.type === BULLET) {
+                        e.isKilled = true;
+                    } else if (pb.type === BOMB) {
                         missiles.explodes.add({
-                            x: pb[j].x,
-                            y: pb[j].y,
+                            x: pb.x,
+                            y: pb.y,
                             t: 10
                         });
                     }
-                    pb.remove(j);
+                    missiles.playerMissiles.remove(j);
                     enemies.countAlive();
                 }
-            }
-        }
+            });
+        });
 
-        const eb = missiles.enemiesMissiles;
         const playerWidth = player.getSize().width;
-        for (const j in missiles.enemiesMissiles) {
+        missiles.enemiesMissiles.forEach((eb, j) => {
             if (missiles.enemiesMissiles.length > j
-                && eb[j].x + missiles.size >= player.x
-                && eb[j].x <= player.x + playerWidth
-                && eb[j].y + missiles.size >= player.y
-                && eb[j].y <= player.y + player.height) {
+                && eb.x + missiles.size >= player.x
+                && eb.x <= player.x + playerWidth
+                && eb.y + missiles.size >= player.y
+                && eb.y <= player.y + player.height) {
                 Game.finish('fail');
             }
-        }
+        });
     }
 
     Packages() {
-        const ex = extras.list;
         const playerWidth = player.getSize().width;
-        for (const j in ex) {
-            if (ex.length > j
-                && ex[j].x + ex[j].size >= player.x
-                && ex[j].x <= player.x + playerWidth
-                && ex[j].y + ex[j].size >= player.y
-                && ex[j].y <= player.y + player.height) {
+        extras.list.forEach((ex, j) => {
+            if (extras.list.length > j
+                && ex.x + ex.size >= player.x
+                && ex.x <= player.x + playerWidth
+                && ex.y + ex.size >= player.y
+                && ex.y <= player.y + player.height) {
 
-                ex[j].set();
+                ex.set();
                 ex.remove(j);
             }
-        }
+        });
     }
 
     PointCircleColliding(circle, point) {
@@ -118,4 +112,5 @@ export class CollisionsClass {
         return (dx * dx + dy * dy <= (circle.r * circle.r));
     }
 }
+
 export const collisions = new CollisionsClass();

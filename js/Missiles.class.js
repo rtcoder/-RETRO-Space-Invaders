@@ -11,20 +11,19 @@ export class Missiles {
     }
 
     move() {
-        const pb = this.playerMissiles;
-        const eb = this.enemiesMissiles;
-        for (const i in pb) {
-            pb[i].y -= this.step;
-            if (pb[i].y < 0) {
-                pb.remove(i);
+        this.playerMissiles.forEach((pb, i) => {
+            pb.y -= this.step;
+            if (pb.y < 0) {
+                this.playerMissiles.remove(i);
             }
-        }
-        for (const i in eb) {
-            eb[i].y += this.step;
-            if (eb[i].y > canvas.height) {
-                eb.remove(i);
+        });
+        this.enemiesMissiles.forEach((eb, i) => {
+            eb.y += this.step;
+            if (eb.y > canvas.height) {
+                this.enemiesMissiles.remove(i);
             }
-        }
+        });
     }
 }
+
 export const missiles = new Missiles();
